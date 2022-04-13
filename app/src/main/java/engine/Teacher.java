@@ -1,6 +1,6 @@
 package engine;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime;  //--> inny format trzeba dac bo android 7.0 nie obsluguje
 import java.util.ArrayList;
 
 public class Teacher {
@@ -29,7 +29,7 @@ public class Teacher {
     // add student to students list
     public void addStudent(String firstName, String surName, String email, String phone){
         // TODO: student constructor
-        Student student = new Student();
+        Student student = new Student(firstName, surName, email, phone);
         students.add(student);
     }
 
@@ -52,7 +52,7 @@ public class Teacher {
     // create homework
     public void createHomework(String name, String description, ArrayList<String> attachmentsFileNames){
         // TODO: Homework constructor
-        Homework homework = new Homework();
+        Homework homework = new Homework(name, description, attachmentsFileNames);
         homeworks.add(homework);
     }
 
