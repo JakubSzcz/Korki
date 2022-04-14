@@ -1,6 +1,6 @@
 package engine;
 
-import java.time.LocalDateTime;  //--> inny format trzeba dac bo android 7.0 nie obsluguje
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Teacher {

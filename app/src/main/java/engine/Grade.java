@@ -14,7 +14,7 @@ public class Grade {
     private String homeworkName;
 
     //when homework was marked
-    //private final LocalDateTime marked;
+    private final LocalDateTime marked;
 
     /////////////////////////////////////////////////////
     //                   functions                     //
@@ -24,9 +24,14 @@ public class Grade {
     public Grade(String mark, String homeworkName) {
         this.mark = mark;
         this.homeworkName = homeworkName;
+        this.marked = LocalDateTime.now();
     }
 
-    public String get_mark() {return mark;}
+    //getters
 
-    public String get_homeworkName() {return homeworkName;}
+    public String getMark() {return mark;}
+
+    public String getHomeworkName() {return homeworkName;}
+
+    public String getMarked() {return String.valueOf(marked);}
 }

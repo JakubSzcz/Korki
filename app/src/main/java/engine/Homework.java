@@ -28,10 +28,9 @@ public class Homework{
     }
 
     //getters
+    public String getHomeworkName() {return homeworkName;}
 
-    public String get_homeworkName() {return homeworkName;}
+    public String getDescription() {return description;}
 
-    public String get_description() {return description;}
-
-    public ArrayList<String> get_attachmentsFileNames() {return attachmentsFileNames;}
+    public ArrayList<String> getAttachmentsFileNames() {return attachmentsFileNames;}
 }
