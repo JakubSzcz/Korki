@@ -20,7 +20,7 @@ public class Student {
     private String phone;
 
     //when added
-    //private LocalDateTime added;
+    private LocalDateTime added;
 
     /////////////////////////////////////////////////////
     //                   functions                     //
@@ -33,7 +33,7 @@ public class Student {
         this.surName = surName;
         this.email = email;
         this.phone = phone;
-        //this.added = LocalDateTime.now(); --> inny format trzeba dac bo android 7.0 nie obsluguje
+        this.added = LocalDateTime.now(); //--> inny format trzeba dac bo android 7.0 nie obsluguje
     }
 
     //getters:
