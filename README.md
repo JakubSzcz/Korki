@@ -2,7 +2,7 @@
 Opis
 
 ### Compilation problems
-1. SDK location not Found
+1. **SDK location not Found**
     * create file *local.properties* in project directory
     * paste: *sdk.dir=C\\:\\\\Users\\\\yourUserName\\\\AppData\\\\Local\\\\Android\\\\Sdk*
     * change *yourUserName*
