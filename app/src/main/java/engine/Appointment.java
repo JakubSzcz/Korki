@@ -1,6 +1,7 @@
 package engine;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class Appointment {
     /////////////////////////////////////////////////////
@@ -66,6 +67,11 @@ public class Appointment {
         }else{
             return true;
         }
+    }
+
+    // get duration
+    public double getDuration(){
+        return ChronoUnit.MINUTES.between(dateStart, dateEnd);
     }
 
     /////////////////////////////////////////////////////

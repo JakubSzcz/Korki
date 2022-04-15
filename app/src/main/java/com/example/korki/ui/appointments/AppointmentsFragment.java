@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.databinding.FragmentAppointmentsBinding;
+import engine.Appointment;
+import engine.Student;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class AppointmentsFragment extends Fragment {
 
@@ -19,19 +24,30 @@ public class AppointmentsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        // android defaults
         appointmentsViewModel =
                 new ViewModelProvider(this).get(AppointmentsViewModel.class);
 
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAppointments;
-        appointmentsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        // appointments list
+        final ListView appointmentsList = binding.appointmentsList;
+        ArrayList<Appointment> appointments = new ArrayList<>();
+
+        //////////// testing purposes
+        Student student = new Student("A", "C", "C", "D");
+        Appointment appointment1 = new Appointment(student, "A", 90, LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(90), 0);
+        Appointment appointment2 = new Appointment(student, "A", 90, LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(90), 0);
+        appointments.add(appointment1);
+        appointments.add(appointment2);
+        ////////////
+
+        AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(
+                Objects.requireNonNull(this.getContext()), appointments);
+        appointmentsList.setAdapter(appointmentsAdapter);
         return root;
     }
 
