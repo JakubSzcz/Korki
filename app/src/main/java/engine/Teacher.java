@@ -41,7 +41,7 @@ public class Teacher {
     // add appointment to calendar
     public void addAppointment(String title, LocalDateTime dateStart, int duration, float price){
         // TODO: action after worked and not worked
-        boolean worked = calendar.addAppointment(title, dateStart, duration, price);
+        // boolean worked = calendar.addAppointment(title, dateStart, duration, price);
     }
 
     // delete appointment from calendar
