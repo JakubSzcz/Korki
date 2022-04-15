@@ -12,6 +12,7 @@ import com.example.korki.R;
 import engine.Appointment;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
@@ -36,11 +37,15 @@ public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
         TextView student = convertView.findViewById(R.id.student);
         TextView dateStart = convertView.findViewById(R.id.dateStart);
         TextView duration = convertView.findViewById(R.id.duration);
+
         // Populate the data into the template view using the data object
         name.setText("title: " + appointment.getTitle());
-        student.setText("student: " + appointment.getStudent().getFirstName());
-        dateStart.setText("date: " + appointment.getDateStart());
-        duration.setText("duration: " + appointment.getDuration() + " minutes");
+        student.setText("student: " + appointment.getStudent().getFirstName() + " " +
+                appointment.getStudent().getSurName());
+        dateStart.setText("date: " + DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
+                .format(appointment.getDateStart()));
+        duration.setText("duration: " + ((int)(appointment.getDuration())) + " minutes");
+
         // Return the completed view to render on screen
         return convertView;
     }

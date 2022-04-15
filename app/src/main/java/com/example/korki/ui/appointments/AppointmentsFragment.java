@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -36,10 +35,10 @@ public class AppointmentsFragment extends Fragment {
         ArrayList<Appointment> appointments = new ArrayList<>();
 
         //////////// testing purposes
-        Student student = new Student("A", "C", "C", "D");
-        Appointment appointment1 = new Appointment(student, "A", 90, LocalDateTime.now(),
+        Student student = new Student("Jan", "Kowalski", "C", "D");
+        Appointment appointment1 = new Appointment(student, "Meeting", 90, LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(90), 0);
-        Appointment appointment2 = new Appointment(student, "A", 90, LocalDateTime.now(),
+        Appointment appointment2 = new Appointment(student, "Meeting", 90, LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(90), 0);
         appointments.add(appointment1);
         appointments.add(appointment2);
