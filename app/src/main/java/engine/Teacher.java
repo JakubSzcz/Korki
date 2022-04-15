@@ -17,12 +17,15 @@ public class Teacher {
     // homeworks list
     private ArrayList<Homework> homeworks;
 
+    // singleton teacher
+    private static Teacher teacher;
+
     /////////////////////////////////////////////////////
     //                   functions                     //
     /////////////////////////////////////////////////////
 
     // constructor
-    public Teacher(){
+    private Teacher(){
         // TODO: load or initialize variables
     }
 
@@ -64,5 +67,13 @@ public class Teacher {
     //
     public void deleteHomework(){
         // TODO
+    }
+
+    // get singleton teacher
+    public static Teacher getTeacher(){
+        if (teacher == null){
+            teacher = new Teacher();
+        }
+        return teacher;
     }
 }
