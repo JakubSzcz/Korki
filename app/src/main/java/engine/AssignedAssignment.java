@@ -20,10 +20,17 @@ public class AssignedAssignment extends Assignment{
     //                   functions                     //
     /////////////////////////////////////////////////////
 
-    //constructor
-    public AssignedAssignment(String assignmentName, String description, String content, ArrayList<String> attachmentsFileNames, String mark, boolean isCompleted) {
+    //constructor with attachments
+    public AssignedAssignment(String assignmentName, String description, String content, ArrayList<String> attachmentsFileNames) {
         super(assignmentName, description, content, attachmentsFileNames);
-        this.mark = mark;
-        this.isCompleted = isCompleted;
+        this.mark = "0%";
+        this.isCompleted = false;
+    }
+
+    //constructor without attachments
+    public AssignedAssignment(String assignmentName, String description, String content) {
+        super(assignmentName, description, content);
+        this.mark = "0%";
+        this.isCompleted = false;
     }
 }

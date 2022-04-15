@@ -33,8 +33,27 @@ public class Student {
     //                   functions                     //
     /////////////////////////////////////////////////////
 
-    //construcotr
+    //add new assignedAssignment from list of existing Assignments
+    public void addAssignedAssignmentFromList(Assignment assignmentToAdd){
+        AssignedAssignment newAssignment = new AssignedAssignment(assignmentToAdd.getAssignmentName(), assignmentToAdd.getDescription(), assignmentToAdd.getContent(), assignmentToAdd.getAttachmentsFileNames());
+        assignments.add(newAssignment);
+    }
 
+    //adding directly new assignedAssignment
+    public void addAssignedAssignmentDirectly(String assignmentName, String description, String content){
+        AssignedAssignment newAssignment = new AssignedAssignment(assignmentName, description, content);
+        assignments.add(newAssignment);
+    }
+
+    //delete assigned assignment
+    public void deleteAssignedAssignment(AssignedAssignment assignmentToDelete){
+        if(assignments.contains(assignmentToDelete)) {
+            assignments.remove(assignmentToDelete);
+        }else{
+            System.out.println("There is no such assignment in the list!"); //do zmiany
+        }
+    }
+    //constructor
     public Student(String firstName, String surName, String email, String phone) {
         this.firstName = firstName;
         this.surName = surName;
@@ -42,7 +61,9 @@ public class Student {
         this.phone = phone;
         this.added = LocalDateTime.now();
         this.description = "";
+        this.assignments = new ArrayList<>();
     }
+
 
 
     //getters:
@@ -57,6 +78,8 @@ public class Student {
     public String getMarked() {return String.valueOf(added);}
 
     public String getDescription() {return description;}
+
+    public ArrayList<AssignedAssignment> getAssignments() {return assignments;}
 
     //setters:
 

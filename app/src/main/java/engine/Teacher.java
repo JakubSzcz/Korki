@@ -14,7 +14,7 @@ public class Teacher {
     // calendar object which contains all appointments
     private Calendar calendar;
 
-    // homeworks list
+    // assignment list
     private ArrayList<Assignment> assignments;
 
     // singleton teacher
