@@ -1,4 +1,4 @@
-package com.example.korki.ui.gallery;
+package com.example.korki.ui.students;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
