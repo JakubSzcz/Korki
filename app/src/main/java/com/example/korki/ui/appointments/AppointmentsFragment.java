@@ -5,10 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+import com.example.korki.R;
 import com.example.korki.databinding.FragmentAppointmentsBinding;
+import com.example.korki.ui.home.HomeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import engine.Appointment;
 import engine.Student;
@@ -16,6 +21,8 @@ import engine.Student;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
+
+import static android.os.Build.VERSION_CODES.R;
 
 public class AppointmentsFragment extends Fragment {
 
@@ -51,7 +58,7 @@ public class AppointmentsFragment extends Fragment {
         // add appointment button
         final FloatingActionButton addAppointmentBut = binding.addAppointmentBut;
         addAppointmentBut.setOnClickListener(view -> {
-            // TODO
+            // appointmentsList.setVisibility(View.GONE);
         });
 
         // return

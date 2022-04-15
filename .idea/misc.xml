@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/java/Korki/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.17552083333333332" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/activity_main.xml" value="0.159375" />
+        <entry key="..\:/java/Korki/app/src/main/res/layout/add_appointment.xml" value="0.16927083333333334" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/app_bar_main.xml" value="0.134375" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/appointment.xml" value="0.25" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/content_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_add_appointment.xml" value="0.25416666666666665" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_appointments.xml" value="0.1" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_gallery.xml" value="0.159375" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_home.xml" value="0.1703125" />
