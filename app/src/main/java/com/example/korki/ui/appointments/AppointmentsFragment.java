@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.databinding.FragmentAppointmentsBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import engine.Appointment;
 import engine.Student;
 
@@ -36,17 +37,24 @@ public class AppointmentsFragment extends Fragment {
 
         //////////// testing purposes
         Student student = new Student("Jan", "Kowalski", "C", "D");
-        Appointment appointment1 = new Appointment(student, "Meeting", 90, LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(90), 0);
-        Appointment appointment2 = new Appointment(student, "Meeting", 90, LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(90), 0);
-        appointments.add(appointment1);
-        appointments.add(appointment2);
+        for (int i = 0; i < 10; i++){
+            Appointment appointment = new Appointment(student, "Meeting: " + i, 90, LocalDateTime.now(),
+                    LocalDateTime.now().plusMinutes(90), 0);
+            appointments.add(appointment);
+        }
         ////////////
 
         AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(
                 Objects.requireNonNull(this.getContext()), appointments);
         appointmentsList.setAdapter(appointmentsAdapter);
+
+        // add appointment button
+        final FloatingActionButton addAppointmentBut = binding.addAppointmentBut;
+        addAppointmentBut.setOnClickListener(view -> {
+            // TODO
+        });
+
+        // return
         return root;
     }
 
