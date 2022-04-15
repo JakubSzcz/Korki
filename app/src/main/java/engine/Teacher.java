@@ -15,7 +15,7 @@ public class Teacher {
     private Calendar calendar;
 
     // homeworks list
-    private ArrayList<Homework> homeworks;
+    private ArrayList<Assignment> assignments;
 
     // singleton teacher
     private static Teacher teacher;
@@ -52,20 +52,20 @@ public class Teacher {
         // TODO
     }
 
-    // create homework
-    public void createHomework(String name, String description, ArrayList<String> attachmentsFileNames){
+    // create assignment
+    public void createAssignment(String name, String description, String content ,ArrayList<String> attachmentsFileNames){
         // TODO: Homework constructor
-        Homework homework = new Homework(name, description, attachmentsFileNames);
-        homeworks.add(homework);
+        Assignment assignment = new Assignment(name, description, content ,attachmentsFileNames);
+        assignments.add(assignment);
     }
 
     //
-    public void editHomework(){
+    public void editAssignment(){
         // TODO
     }
 
     //
-    public void deleteHomework(){
+    public void deleteAssignment(){
         // TODO
     }
 

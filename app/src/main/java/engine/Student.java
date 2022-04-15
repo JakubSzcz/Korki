@@ -1,6 +1,7 @@
 package engine;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Student {
     /////////////////////////////////////////////////////
@@ -19,8 +20,14 @@ public class Student {
     //phone number
     private String phone;
 
+    //description
+    private String description;
+
     //when added
     private final LocalDateTime added;
+
+    //list of assigned assignments
+    private ArrayList<AssignedAssignment> assignments;
 
     /////////////////////////////////////////////////////
     //                   functions                     //
@@ -34,6 +41,7 @@ public class Student {
         this.email = email;
         this.phone = phone;
         this.added = LocalDateTime.now();
+        this.description = "";
     }
 
 
@@ -47,4 +55,11 @@ public class Student {
     public String getPhone() {return phone;}
 
     public String getMarked() {return String.valueOf(added);}
+
+    public String getDescription() {return description;}
+
+    //setters:
+
+
+    public void setDescription(String description) {this.description = description;}
 }
