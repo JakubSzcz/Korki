@@ -40,7 +40,6 @@ public class Teacher {
 
     // add student to students list
     public void addStudent(String firstName, String surName, String email, String phone){
-        // TODO: student constructor
         Student student = new Student(firstName, surName, email, phone);
         students.add(student);
     }
@@ -50,10 +49,15 @@ public class Teacher {
         // TODO
     }
 
-    // create assignment
+    // create assignment with attachments
     public void createAssignment(String name, String description, String content ,ArrayList<String> attachmentsFileNames){
-        // TODO: Homework constructor
         Assignment assignment = new Assignment(name, description, content ,attachmentsFileNames);
+        assignments.add(assignment);
+    }
+
+    // create assignment without attachments
+    public void createAssignment(String name, String description, String content){
+        Assignment assignment = new Assignment(name, description, content);
         assignments.add(assignment);
     }
 
@@ -62,9 +66,14 @@ public class Teacher {
         // TODO
     }
 
-    //
-    public void deleteAssignment(){
-        // TODO
+    //delete assignment from list
+    public void deleteAssignment(Assignment assignmentToDelete){
+        for(Assignment toDelete : assignments){
+            if(toDelete.equals(assignmentToDelete)){
+                assignments.remove(toDelete);
+                break;
+            }
+        }
     }
 
     // get singleton teacher

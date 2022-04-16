@@ -21,7 +21,8 @@ public class AssignedAssignment extends Assignment{
     /////////////////////////////////////////////////////
 
     //constructor with attachments
-    public AssignedAssignment(String assignmentName, String description, String content, ArrayList<String> attachmentsFileNames) {
+    public AssignedAssignment(String assignmentName, String description, String content,
+                              ArrayList<String> attachmentsFileNames) {
         super(assignmentName, description, content, attachmentsFileNames);
         this.mark = "0%";
         this.isCompleted = false;
