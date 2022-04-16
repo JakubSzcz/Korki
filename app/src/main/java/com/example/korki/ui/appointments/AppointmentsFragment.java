@@ -49,6 +49,7 @@ public class AppointmentsFragment extends Fragment {
                     .replace(com.example.korki.R.id.nav_host_fragment_content_main,
                             new AddAppointmentFragment())
                     .addToBackStack(null)
+                    .setReorderingAllowed(true)
                     .commit();
         });
 
