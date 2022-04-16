@@ -90,4 +90,20 @@ public class Teacher {
     public ArrayList<Assignment> getAssignments() {
         return assignments;
     }
+
+    /////////////////////////////////////////////////////
+    //                     static                      //
+    /////////////////////////////////////////////////////
+
+    // how may weeks
+    public final static int MIN_HOW_MANY_WEEKS = 1;
+    public final static int MAX_HOW_MANY_WEEKS = 52;
+
+    // duration time in minutes
+    public final static int MIN_DURATION = 0;
+    public final static int MAX_DURATION = 1440;
+
+    // price
+    public final static int MIN_PRICE = 0;
+    public final static int MAX_PRICE = 999;
 }
