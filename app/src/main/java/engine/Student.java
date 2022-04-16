@@ -1,5 +1,7 @@
 package engine;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -64,6 +66,12 @@ public class Student {
         this.assignments = new ArrayList<>();
     }
 
+    // to string
+    @NotNull
+    @Override
+    public String toString(){
+        return this.firstName + " " + this.surName;
+    }
 
 
     //getters:

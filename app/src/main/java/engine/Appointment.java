@@ -48,9 +48,9 @@ public class Appointment {
     // check if is collision with another appointment
     public boolean isCollision(Appointment appointment){
         if (appointment.getDateStart().isBefore(this.dateStart)){
-            return appointment.getDateEnd().isBefore(this.dateStart);
+            return !appointment.getDateEnd().isBefore(this.dateStart);
         }else{
-            return appointment.getDateStart().isAfter(this.dateEnd);
+            return !appointment.getDateStart().isAfter(this.dateEnd);
         }
     }
 

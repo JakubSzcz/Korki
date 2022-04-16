@@ -27,6 +27,15 @@ public class Teacher {
     // constructor
     private Teacher(){
         // TODO: load or initialize variables
+        ////////// tests purposes
+        this.calendar = new Calendar();
+        this.students = new ArrayList<>();
+        addStudent("Jan", "Kowalski", "C", "D");
+        for (int i = 0; i < 10; i++){
+            calendar.addSingleAppointment(students.get(0), "Meeting: " + i, 50,
+                    LocalDateTime.now().plusDays(i), 90);
+        }
+        //////////
     }
 
     // add student to students list
@@ -38,17 +47,6 @@ public class Teacher {
 
     // delete student from students list
     public void deleteStudent(){
-        // TODO
-    }
-
-    // add appointment to calendar
-    public void addAppointment(String title, LocalDateTime dateStart, int duration, float price){
-        // TODO: action after worked and not worked
-        // boolean worked = calendar.addAppointment(title, dateStart, duration, price);
-    }
-
-    // delete appointment from calendar
-    public void deleteAppointment(){
         // TODO
     }
 
@@ -75,5 +73,21 @@ public class Teacher {
             teacher = new Teacher();
         }
         return teacher;
+    }
+
+    /////////////////////////////////////////////////////
+    //                    getters                      //
+    /////////////////////////////////////////////////////
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
     }
 }

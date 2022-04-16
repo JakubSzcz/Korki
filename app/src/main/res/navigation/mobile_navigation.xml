@@ -22,4 +22,8 @@
             android:name="com.example.korki.ui.appointments.AppointmentsFragment"
             android:label="@string/menu_appointments"
             tools:layout="@layout/fragment_appointments"/>
+    <fragment
+            android:id="@+id/add_appointment"
+            android:name="com.example.korki.ui.appointments.AppointmentsFragment"
+            tools:layout="@layout/fragment_add_appointment"/>
 </navigation>

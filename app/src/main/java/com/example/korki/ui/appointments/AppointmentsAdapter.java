@@ -40,8 +40,7 @@ public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
 
         // Populate the data into the template view using the data object
         name.setText("title: " + appointment.getTitle());
-        student.setText("student: " + appointment.getStudent().getFirstName() + " " +
-                appointment.getStudent().getSurName());
+        student.setText("student: " + appointment.getStudent().toString());
         dateStart.setText("date: " + DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
                 .format(appointment.getDateStart()));
         duration.setText("duration: " + ((int)(appointment.getDuration())) + " minutes");
