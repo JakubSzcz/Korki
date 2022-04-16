@@ -49,4 +49,14 @@ public class StudentTest {
         assertTrue(student.getAssignments().size()==1); //size decreased
         assertTrue(student.getAssignments().get(0).equals(assignedAssignment2)); //good element was removed
     }
+
+    @Test
+    public void editStudent() {
+        Student student = new Student("A", "C", "C", "D");
+        student.editStudent("E","F","G","H","");
+        assertTrue(student.getFirstName().equals("E"));
+        assertTrue(student.getSurName().equals("F"));
+        assertTrue(student.getEmail().equals("G"));
+        assertTrue(student.getPhone().equals("H"));
+    }
 }

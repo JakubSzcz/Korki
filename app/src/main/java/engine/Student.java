@@ -92,13 +92,21 @@ public class Student {
         }
     }
 
+    //edit student
+    public void editStudent(String firstName, String surName, String email, String phone,String description){
+        this.firstName = firstName;
+        this.surName = surName;
+        this.email = email;
+        this.phone = phone;
+        this.description = description;
+    }
+
     // to string
     @NotNull
     @Override
     public String toString(){
         return this.firstName + " " + this.surName;
     }
-
 
     /////////////////////////////////////////////////////
     //                    getters                      //
@@ -117,9 +125,4 @@ public class Student {
     public String getDescription() {return description;}
 
     public ArrayList<AssignedAssignment> getAssignments() {return assignments;}
-
-    //setters:
-
-
-    public void setDescription(String description) {this.description = description;}
 }

@@ -74,7 +74,6 @@ public class Teacher {
                 break;
             }
         }
-
     }
 
     // get singleton teacher
