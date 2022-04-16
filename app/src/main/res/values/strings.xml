@@ -25,4 +25,5 @@
     <string name="cancel">cancel</string>
     <string name="title">Title</string>
     <string name="meeting_title">Meeting title</string>
+    <string name="starting_date">Starting date</string>
 </resources>

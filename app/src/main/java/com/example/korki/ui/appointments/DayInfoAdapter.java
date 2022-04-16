@@ -15,11 +15,21 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.DayOfWeek;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class DayInfoAdapter extends ArrayAdapter<DayOfWeek> {
+    // vars
+    HashMap<DayOfWeek, NumberPicker> hourMap;
+    HashMap<DayOfWeek, NumberPicker> minuteMap;
+    HashMap<DayOfWeek, NumberPicker> durationMap;
+
     // constructor
     public DayInfoAdapter(@NonNull @NotNull Context context, ArrayList<DayOfWeek> days) {
         super(context, 0, days);
+        hourMap = new HashMap<>();
+        minuteMap = new HashMap<>();
+        durationMap = new HashMap<>();
     }
 
     // override getView method
@@ -38,6 +48,9 @@ public class DayInfoAdapter extends ArrayAdapter<DayOfWeek> {
         NumberPicker hour = convertView.findViewById(R.id.hour);
         NumberPicker minutes = convertView.findViewById(R.id.minutes);
         NumberPicker duration = convertView.findViewById(R.id.duration);
+        hourMap.put(dayOfWeek, hour);
+        minuteMap.put(dayOfWeek, minutes);
+        durationMap.put(dayOfWeek, duration);
         // Populate the data into the template view using the data object
         day.setText(dayOfWeek.toString());
         hour.setMinValue(0);
@@ -49,5 +62,20 @@ public class DayInfoAdapter extends ArrayAdapter<DayOfWeek> {
 
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    // return hour
+    public int getHour(DayOfWeek dayOfWeek){
+        return Objects.requireNonNull(hourMap.get(dayOfWeek)).getValue();
+    }
+
+    // get minutes
+    public int getMinute(DayOfWeek dayOfWeek){
+        return Objects.requireNonNull(minuteMap.get(dayOfWeek)).getValue();
+    }
+
+    // get duration
+    public int getDuration(DayOfWeek dayOfWeek){
+        return Objects.requireNonNull(durationMap.get(dayOfWeek)).getValue();
     }
 }

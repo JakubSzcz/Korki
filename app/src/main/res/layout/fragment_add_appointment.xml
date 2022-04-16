@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
@@ -81,26 +82,21 @@
             android:layout_below="@id/students_spinner"
             android:layout_toEndOf="@id/saturdayBut"
             android:id="@+id/sundayBut"/>
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mondayBut"
-            android:layout_marginTop="20dp"
-            android:id="@+id/daysInfo"/>
     <DatePicker android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_below="@id/daysInfo"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/mondayBut"
                 android:datePickerMode="spinner"
                 android:calendarViewShown="false"
                 android:id="@+id/date"/>
     <TimePicker android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_below="@id/daysInfo"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/mondayBut"
                 android:timePickerMode="spinner"
                 android:layout_toEndOf="@+id/date"
                 android:id="@+id/time"/>
+
     <TextView
             android:text="@string/how_many_weeks"
             android:layout_width="160dp"
@@ -110,6 +106,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="23dp"
             android:id="@+id/how_many_weeks_label"/>
+
     <NumberPicker android:layout_width="wrap_content"
                   android:layout_height="50dp"
                   android:layout_below="@+id/date"
@@ -146,6 +143,29 @@
                   android:layout_toEndOf="@id/price_label"
                   android:layout_marginTop="4dp"
                   android:id="@+id/price"/>
+    <TextView
+            android:text="@string/starting_date"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="13dp"
+            android:id="@+id/starting_date_label"/>
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/price"
+              android:layout_toEndOf="@id/starting_date_label"
+              android:id="@+id/starting_date"
+              android:autofillHints="Starting date"
+              android:inputType="date"/>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/starting_date"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/daysInfo"/>
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

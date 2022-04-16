@@ -1,10 +1,5 @@
 package com.example.korki.ui.appointments;
 
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
@@ -18,11 +13,11 @@ import engine.Student;
 import engine.Teacher;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Objects;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class AddAppointmentFragment extends Fragment {
 
@@ -47,6 +42,13 @@ public class AddAppointmentFragment extends Fragment {
     // date time pickers
     DatePicker date;
     TimePicker time;
+
+    // starting date
+    EditText startingDate;
+    TextView startingDateLabel;
+
+    // day info list
+    ListView dayInfoList;
 
     // constructor
     public AddAppointmentFragment() {
@@ -104,6 +106,13 @@ public class AddAppointmentFragment extends Fragment {
         date = binding.date;
         time = binding.time;
 
+        // starting date
+        startingDate = binding.startingDate;
+        startingDateLabel = binding.startingDateLabel;
+        startingDateLabel.setVisibility(View.GONE);
+        startingDate.setHint(LocalDate.now().toString());
+        startingDate.setText(LocalDate.now().toString());
+
         // week day buttons
         final Button mondayBut = binding.mondayBut;
         final Button tuesdayBut = binding.tuesdayBut;
@@ -122,6 +131,10 @@ public class AddAppointmentFragment extends Fragment {
 
         // title
         EditText title = binding.title;
+        startingDate.setVisibility(View.GONE);
+
+        // day info list
+        dayInfoList = binding.daysInfo;
 
         // add button
         final Button addButton = binding.addBut;
@@ -155,7 +168,43 @@ public class AddAppointmentFragment extends Fragment {
                                 Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    // TODO
+                    String startingDateString = startingDate.getText().toString();
+                    try{
+                        LocalDate staringDateDate = LocalDate.parse(startingDateString);
+                        String finalTitle = title.getText().toString();
+                        Student student = (Student) studentsSpinner.getSelectedItem();
+                        int finalPrice = price.getValue();
+                        HashMap<DayOfWeek, LocalTime> timeInfo = new HashMap<>();
+                        HashMap<DayOfWeek, Integer> durations = new HashMap<>();
+                        DayInfoAdapter dayInfoAdapter = (DayInfoAdapter) dayInfoList.getAdapter();
+                        for (DayOfWeek dayOfWeek : dayOfWeekActive){
+                            int hour = dayInfoAdapter.getHour(dayOfWeek);
+                            int minute = dayInfoAdapter.getMinute(dayOfWeek);
+                            int duration = dayInfoAdapter.getDuration(dayOfWeek);
+                            LocalTime dateStart = LocalTime.of(hour, minute);
+                            timeInfo.put(dayOfWeek, dateStart);
+                            durations.put(dayOfWeek, duration);
+                        }
+                        int howManyWeeksInt = howManyWeeks.getValue();
+                        boolean worked = Teacher.getTeacher().getCalendar().addPeriodicAppointment(
+                                student, finalTitle, finalPrice, timeInfo, durations,
+                                howManyWeeksInt, staringDateDate);
+                        if (worked){
+                            getParentFragmentManager()
+                                    .beginTransaction()
+                                    .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                            new AppointmentsFragment())
+                                    .addToBackStack(null)
+                                    .setReorderingAllowed(true)
+                                    .commit();
+                        }else {
+                            Toast.makeText(view.getContext(), "This dates are taken",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }catch (java.time.format.DateTimeParseException exception){
+                        Toast.makeText(view.getContext(), "Date wrong format",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
@@ -199,6 +248,8 @@ public class AddAppointmentFragment extends Fragment {
             durationLabel.setVisibility(View.GONE);
             date.setVisibility(View.GONE);
             time.setVisibility(View.GONE);
+            startingDate.setVisibility(View.VISIBLE);
+            startingDateLabel.setVisibility(View.VISIBLE);
         }else{
             howManyWeeks.setVisibility(View.GONE);
             howManyWeeksLabel.setVisibility(View.GONE);
@@ -206,6 +257,8 @@ public class AddAppointmentFragment extends Fragment {
             durationLabel.setVisibility(View.VISIBLE);
             date.setVisibility(View.VISIBLE);
             time.setVisibility(View.VISIBLE);
+            startingDate.setVisibility(View.GONE);
+            startingDateLabel.setVisibility(View.GONE);
         }
     }
 
@@ -218,8 +271,6 @@ public class AddAppointmentFragment extends Fragment {
 
     // show day info
     public void refreshDayInfoList(){
-        // day info list
-        ListView dayInfoList = binding.daysInfo;
         Collections.sort(dayOfWeekActive);
         ArrayAdapter<DayOfWeek> dayInfoAdapter = new DayInfoAdapter(
                 Objects.requireNonNull(this.getContext()), dayOfWeekActive);

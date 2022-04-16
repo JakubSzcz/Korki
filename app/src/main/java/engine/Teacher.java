@@ -31,10 +31,10 @@ public class Teacher {
         this.calendar = new Calendar();
         this.students = new ArrayList<>();
         addStudent("Jan", "Kowalski", "C", "D");
-        for (int i = 0; i < 10; i++){
+        /*for (int i = 0; i < 10; i++){
             calendar.addSingleAppointment(students.get(0), "Meeting: " + i, 50,
                     LocalDateTime.now().plusDays(i), 90);
-        }
+        }*/
         //////////
     }
 
