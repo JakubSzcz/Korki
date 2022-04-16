@@ -48,7 +48,9 @@ public class Student {
 
     //add new assignedAssignment from list of existing Assignments
     public void addAssignedAssignmentFromList(Assignment assignmentToAdd){
-        AssignedAssignment newAssignment = new AssignedAssignment(assignmentToAdd.getAssignmentName(), assignmentToAdd.getDescription(), assignmentToAdd.getContent(), assignmentToAdd.getAttachmentsFileNames());
+        AssignedAssignment newAssignment = new AssignedAssignment(assignmentToAdd.getAssignmentName(),
+                assignmentToAdd.getDescription(), assignmentToAdd.getContent(),
+                assignmentToAdd.getAttachmentsFileNames());
         assignments.add(newAssignment);
     }
 

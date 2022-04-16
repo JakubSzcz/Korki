@@ -27,7 +27,8 @@ public class Assignment {
     /////////////////////////////////////////////////////
 
     //constructor with attachments
-    public Assignment(String assignmentName, String description, String content, ArrayList<String> attachmentsFileNames ) {
+    public Assignment(String assignmentName, String description, String content,
+                      ArrayList<String> attachmentsFileNames ) {
         this.assignmentName = assignmentName;
         this.description = description;
         this.attachmentsFileNames = attachmentsFileNames;
