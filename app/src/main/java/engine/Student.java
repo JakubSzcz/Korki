@@ -35,6 +35,17 @@ public class Student {
     //                   functions                     //
     /////////////////////////////////////////////////////
 
+    //constructor
+    public Student(String firstName, String surName, String email, String phone) {
+        this.firstName = firstName;
+        this.surName = surName;
+        this.email = email;
+        this.phone = phone;
+        this.added = LocalDateTime.now();
+        this.description = "";
+        this.assignments = new ArrayList<>();
+    }
+
     //add new assignedAssignment from list of existing Assignments
     public void addAssignedAssignmentFromList(Assignment assignmentToAdd){
         AssignedAssignment newAssignment = new AssignedAssignment(assignmentToAdd.getAssignmentName(), assignmentToAdd.getDescription(), assignmentToAdd.getContent(), assignmentToAdd.getAttachmentsFileNames());
@@ -47,23 +58,36 @@ public class Student {
         assignments.add(newAssignment);
     }
 
-    //delete assigned assignment
-    public void deleteAssignedAssignment(AssignedAssignment assignmentToDelete){
-        if(assignments.contains(assignmentToDelete)) {
-            assignments.remove(assignmentToDelete);
+    //delete assigned assignment from a list of assignments assigned to the particular student
+    public void deleteAssignment(AssignedAssignment aassignmentToDelete){
+        //checking if it contains same object
+        if(assignments.contains(aassignmentToDelete)) {
+            assignments.remove(aassignmentToDelete);
+        //checking by values of objects
         }else{
-            System.out.println("There is no such assignment in the list!"); //do zmiany
+            for(AssignedAssignment toDelete : assignments){
+                if(toDelete.equals(aassignmentToDelete)){
+                    assignments.remove(toDelete);
+                    break;
+                }
+            }
         }
     }
-    //constructor
-    public Student(String firstName, String surName, String email, String phone) {
-        this.firstName = firstName;
-        this.surName = surName;
-        this.email = email;
-        this.phone = phone;
-        this.added = LocalDateTime.now();
-        this.description = "";
-        this.assignments = new ArrayList<>();
+
+    //delete assignment from a list of assignments assigned to the particular student
+    public void deleteAssignment(Assignment assignmentToDelete){
+        //checking if it contains same object
+        if(assignments.contains(assignmentToDelete)) {
+            assignments.remove(assignmentToDelete);
+        //checking by values of objects
+        }else{
+            for(AssignedAssignment toDelete : assignments){
+                if(toDelete.equals(assignmentToDelete)){
+                    assignments.remove(toDelete);
+                    break;
+                }
+            }
+        }
     }
 
     // to string
@@ -74,7 +98,10 @@ public class Student {
     }
 
 
-    //getters:
+    /////////////////////////////////////////////////////
+    //                    getters                      //
+    /////////////////////////////////////////////////////
+
     public String getFirstName() {return firstName;}
 
     public String getSurName() {return surName;}
