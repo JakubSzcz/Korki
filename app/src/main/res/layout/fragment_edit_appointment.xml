@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.appointments.AddAppointmentFragment"
+                android:id="@+id/add_appointment">
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/title"
+              android:autofillHints="Meeting title"
+              android:hint="@string/meeting_title"
+              android:inputType="text"/>
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@+id/title"
+            android:id="@+id/students_spinner"/>
+    <DatePicker android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/students_spinner"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                android:id="@+id/date"/>
+    <TimePicker android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/students_spinner"
+                android:timePickerMode="spinner"
+                android:layout_toEndOf="@+id/date"
+                android:id="@+id/time"/>
+
+    <TextView
+            android:text="@string/Duration"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="13dp"
+            android:id="@+id/duration_label"/>
+    <NumberPicker android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:layout_below="@+id/date"
+                  android:layout_toEndOf="@id/duration_label"
+                  android:layout_marginTop="4dp"
+                  android:id="@+id/duration"/>
+    <TextView
+            android:text="@string/price"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="13dp"
+            android:id="@+id/price_label"/>
+    <NumberPicker android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:layout_below="@+id/duration"
+                  android:layout_toEndOf="@id/price_label"
+                  android:layout_marginTop="4dp"
+                  android:id="@+id/price"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/cancel"
+            android:layout_marginStart="6dp"
+            android:id="@+id/cancel_but"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="6dp"
+            android:text="@string/edit"
+            android:id="@+id/edit_but" />
+</RelativeLayout>

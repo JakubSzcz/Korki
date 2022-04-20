@@ -24,6 +24,10 @@
             tools:layout="@layout/fragment_appointments"/>
     <fragment
             android:id="@+id/add_appointment"
-            android:name="com.example.korki.ui.appointments.AppointmentsFragment"
+            android:name="com.example.korki.ui.appointments.AddAppointmentFragment"
             tools:layout="@layout/fragment_add_appointment"/>
+    <fragment
+            android:id="@+id/edit_appointment"
+            android:name="com.example.korki.ui.appointments.EditAppointmentFragment"
+            tools:layout="@layout/fragment_edit_appointment"/>
 </navigation>

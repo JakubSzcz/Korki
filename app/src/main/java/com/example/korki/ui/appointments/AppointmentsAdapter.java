@@ -48,4 +48,6 @@ public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
         // Return the completed view to render on screen
         return convertView;
     }
+
+
 }

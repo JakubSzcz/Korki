@@ -86,9 +86,14 @@ public class Calendar {
     }
 
     // add single appointment
-    public boolean deleteAppointment(){
-        // TODO
-        return true;
+    public boolean deleteAppointment(Appointment appointment){
+        if (appointments.contains(appointment)){
+            appointments.remove(appointment);
+            return true;
+        }else {
+            return false;
+        }
+
     }
 
     // check for collisions, if collision detected returns true
