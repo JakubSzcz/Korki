@@ -54,7 +54,6 @@ public class StudentsFragment extends Fragment {
                     .commit();
         });
 
-
         // return
         return root;
     }
