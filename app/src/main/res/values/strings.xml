@@ -27,4 +27,6 @@
     <string name="meeting_title">Meeting title</string>
     <string name="starting_date">Starting date</string>
     <string name="edit">Edit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

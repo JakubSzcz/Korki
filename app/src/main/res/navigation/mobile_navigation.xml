@@ -13,9 +13,9 @@
 
     <fragment
             android:id="@+id/nav_students"
-            android:name="com.example.korki.ui.students.GalleryFragment"
+            android:name="com.example.korki.ui.students.StudentsFragment"
             android:label="@string/menu_students"
-            tools:layout="@layout/fragment_gallery"/>
+            tools:layout="@layout/fragment_students"/>
 
     <fragment
             android:id="@+id/nav_appointments"
@@ -24,10 +24,14 @@
             tools:layout="@layout/fragment_appointments"/>
     <fragment
             android:id="@+id/add_appointment"
-            android:name="com.example.korki.ui.appointments.AddAppointmentFragment"
+            android:name="com.example.korki.ui.appointments.AppointmentsFragment"
             tools:layout="@layout/fragment_add_appointment"/>
     <fragment
             android:id="@+id/edit_appointment"
             android:name="com.example.korki.ui.appointments.EditAppointmentFragment"
             tools:layout="@layout/fragment_edit_appointment"/>
+    <fragment
+            android:id="@+id/add_student"
+            android:name="com.example.korki.ui.students.StudentsFragment"
+            tools:layout="@layout/fragment_add_student"/>
 </navigation>
