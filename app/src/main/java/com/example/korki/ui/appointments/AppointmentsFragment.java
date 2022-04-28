@@ -23,14 +23,11 @@ import java.util.Objects;
 
 public class AppointmentsFragment extends Fragment {
 
-    private AppointmentsViewModel appointmentsViewModel;
     private FragmentAppointmentsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // android defaults
-        appointmentsViewModel =
-                new ViewModelProvider(this).get(AppointmentsViewModel.class);
 
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

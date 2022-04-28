@@ -22,7 +22,6 @@ import java.util.*;
 public class AddAppointmentFragment extends Fragment {
 
     // defaults
-    private AppointmentsViewModel addAppointmentViewModel;
     private FragmentAddAppointmentBinding binding;
 
     // vars
@@ -64,9 +63,6 @@ public class AddAppointmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // android defaults
-        addAppointmentViewModel =
-                new ViewModelProvider(this).get(AppointmentsViewModel.class);
-
         binding = FragmentAddAppointmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
