@@ -22,12 +22,19 @@ import java.util.ArrayList;
 public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
     FragmentManager fragmentManager;
     Resources resources;
+    boolean drawButtons;
     // constructor
     public AppointmentsAdapter(@NonNull @NotNull Context context, ArrayList<Appointment> appointments,
-                               FragmentManager fragmentManager, Resources resources) {
+                               FragmentManager fragmentManager, Resources resources, boolean drawButtons) {
         super(context, 0, appointments);
         this.fragmentManager = fragmentManager;
         this.resources = resources;
+        this.drawButtons = drawButtons;
+    }
+
+    public AppointmentsAdapter(@NonNull @NotNull Context context, ArrayList<Appointment> appointments,
+                               FragmentManager fragmentManager, Resources resources) {
+        this(context, appointments, fragmentManager, resources, true);
     }
 
     // override getView method
@@ -57,26 +64,33 @@ public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
         duration.setText("duration: " + ((int)(appointment.getDuration())) + " minutes");
 
         // buttons
-        edit.setOnClickListener(view -> {
-            fragmentManager
-                    .beginTransaction()
-                    .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                            new EditAppointmentFragment(appointment))
-                    .addToBackStack(null)
-                    .setReorderingAllowed(true)
-                    .commit();
-        });
-        delete.setBackgroundColor(resources.getColor(R.color.cancel_button));
-        delete.setOnClickListener(view -> {
-            Teacher.getTeacher().deleteAppointment(appointment);
-            fragmentManager
-                    .beginTransaction()
-                    .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                            new AppointmentsFragment())
-                    .addToBackStack(null)
-                    .setReorderingAllowed(true)
-                    .commit();
-        });
+        if (!drawButtons){
+            edit.setVisibility(View.GONE);
+            delete.setVisibility(View.GONE);
+        }else{
+
+            edit.setOnClickListener(view -> {
+                fragmentManager
+                        .beginTransaction()
+                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                new EditAppointmentFragment(appointment))
+                        .addToBackStack(null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            });
+            delete.setBackgroundColor(resources.getColor(R.color.cancel_button));
+            delete.setOnClickListener(view -> {
+                Teacher.getTeacher().deleteAppointment(appointment);
+                fragmentManager
+                        .beginTransaction()
+                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                new AppointmentsFragment())
+                        .addToBackStack(null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            });
+        }
+
 
         // Return the completed view to render on screen
         return convertView;

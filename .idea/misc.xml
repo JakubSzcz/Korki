@@ -26,7 +26,7 @@
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_appointments.xml" value="0.1" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_edit_appointment.xml" value="0.1703125" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_gallery.xml" value="0.159375" />
-        <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_home.xml" value="0.1703125" />
+        <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/fragment_slideshow.xml" value="0.134375" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/nav_header_main.xml" value="0.159375" />
         <entry key="..\:/java/Korki/app/src/main/res/layout/student.xml" value="0.1765625" />
@@ -44,7 +44,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.4" />
+        <option name="scale" value="0.264" />
       </ProjectState>
     </option>
   </component>
