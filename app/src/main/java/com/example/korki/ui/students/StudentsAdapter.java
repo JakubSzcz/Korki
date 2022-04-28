@@ -9,20 +9,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import com.example.korki.R;
-import com.example.korki.ui.appointments.AppointmentsFragment;
 import engine.Student;
 import engine.Teacher;
 import org.jetbrains.annotations.NotNull;
-import androidx.fragment.app.Fragment;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class StudentsAdapter extends ArrayAdapter<Student> {
     // constructor
-    public StudentsAdapter(@NonNull @NotNull Context context, ArrayList<Student> students) {
+    private FragmentManager fragmentManager;
+    public StudentsAdapter(@NonNull @NotNull Context context, ArrayList<Student> students, FragmentManager fragmentManager) {
         super(context, 0, students);
+        this.fragmentManager = fragmentManager;
     }
 
     // override getView method
@@ -62,6 +62,13 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
             public void onClick(View view) {
                 if(Teacher.getTeacher().getStudents().size() > 0){
                     Teacher.getTeacher().deleteStudent(student);
+                    fragmentManager
+                            .beginTransaction()
+                            .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                    new StudentsFragment())
+                            .addToBackStack(null)
+                            .setReorderingAllowed(true)
+                            .commit();
                 }else{
 
                 }
