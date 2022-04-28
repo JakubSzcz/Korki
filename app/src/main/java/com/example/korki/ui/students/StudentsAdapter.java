@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.example.korki.R;
@@ -36,10 +37,14 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         // Lookup view for data population
         TextView firstName = convertView.findViewById(R.id.firstname);
         TextView surName = convertView.findViewById(R.id.surName);
+        Button editBut = convertView.findViewById(R.id.editStudentButton);
+        Button deleteBut = convertView.findViewById(R.id.deleteStudentButton);
 
         // Populate the data into the template view using the data object
         firstName.setText("First name: " + student.getFirstName());
         surName.setText("Surname: " + student.getSurName());
+        //assign buttons to their roles
+
         // Return the completed view to render on screen
         return convertView;
     }

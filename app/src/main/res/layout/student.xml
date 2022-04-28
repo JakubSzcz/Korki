@@ -12,5 +12,26 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/firstname"
             android:id="@+id/surName"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/surName"
+            android:id="@+id/test"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:text="Delete"
+            android:id="@+id/delete_student_button"
+            android:onClick="deleteStudent"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/delete_student_button"
+            android:layout_marginEnd="10dp"
+            android:text="Edit"
+            android:id="@+id/edit_student_button"
+            android:onClick="editStudent"/>
+
+
 
 </RelativeLayout>

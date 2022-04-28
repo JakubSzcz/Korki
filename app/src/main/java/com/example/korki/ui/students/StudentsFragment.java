@@ -23,6 +23,9 @@ public class StudentsFragment extends Fragment {
 
     private StudentsViewModel studentsViewModel;
     private FragmentStudentsBinding binding;
+    public void deleteStudent(){
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
