@@ -95,6 +95,7 @@
                 android:layout_below="@id/mondayBut"
                 android:timePickerMode="spinner"
                 android:layout_toEndOf="@+id/date"
+
                 android:id="@+id/time"/>
 
     <TextView

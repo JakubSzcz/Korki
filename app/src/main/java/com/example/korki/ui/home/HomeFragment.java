@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
         // appointments list
         final ListView appointmentsList = binding.appointmentsList;
-        final ArrayList<Appointment> appointments = Teacher.getTeacher().getFirstFutureAppointments(3);
+        ArrayList<Appointment> appointments = Teacher.getTeacher().getFirstFutureAppointments(3);
         if (appointments.size() > 0){
             binding.listEmpty.setVisibility(View.GONE);
         }

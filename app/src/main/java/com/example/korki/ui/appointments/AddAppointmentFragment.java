@@ -101,6 +101,7 @@ public class AddAppointmentFragment extends Fragment {
         // date time pickers
         date = binding.date;
         time = binding.time;
+        time.setIs24HourView(true);
 
         // starting date
         startingDate = binding.startingDate;
@@ -141,7 +142,7 @@ public class AddAppointmentFragment extends Fragment {
                 if (Teacher.getTeacher().getStudents().size() > 0){
                     if(dayOfWeekActive.size() == 0){
                         int day = date.getDayOfMonth();
-                        int month = date.getMonth();
+                        int month = date.getMonth() + 1;
                         int year = date.getYear();
                         int hour = time.getHour();
                         int minute = time.getMinute();

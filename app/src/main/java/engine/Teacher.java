@@ -166,34 +166,40 @@ public class Teacher {
 
     // save calendar
     public void saveCalendar(){
-        File calendarFile = new File(path, CALENDAR_FILENAME);
-        try {
-            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(calendarFile));
-            stream.writeObject(calendar);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (path != null){
+            File calendarFile = new File(path, CALENDAR_FILENAME);
+            try {
+                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(calendarFile));
+                stream.writeObject(calendar);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     // save students
     public void saveStudents(){
-        File studentsFile = new File(path, STUDENTS_FILENAME);
-        try {
-            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(studentsFile));
-            stream.writeObject(students);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (path != null){
+            File studentsFile = new File(path, STUDENTS_FILENAME);
+            try {
+                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(studentsFile));
+                stream.writeObject(students);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     // save assignments
     public void saveAssignments(){
-        File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
-        try {
-            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(assignmentsFile));
-            stream.writeObject(assignments);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (path != null){
+            File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
+            try {
+                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(assignmentsFile));
+                stream.writeObject(assignments);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -215,20 +221,7 @@ public class Teacher {
         return calendar.getAppointments();
     }
     public ArrayList<Appointment> getFirstFutureAppointments(int number){
-        ArrayList<Appointment> toReturn = new ArrayList<>();
-        ArrayList<Appointment> appointments = calendar.getAppointments();
-        LocalDateTime today = LocalDateTime.now();
-        int counter = 0;
-        for (Appointment a: appointments){
-            if (a.getDateStart().isAfter(today)){
-                toReturn.add(a);
-            }
-            counter++;
-            if (counter == number){
-                break;
-            }
-        }
-        return toReturn;
+       return calendar.getFirstFutureAppointments(number);
     }
 
     public ArrayList<Student> getStudents() {

@@ -115,4 +115,20 @@ public class Calendar implements Serializable {
     public ArrayList<Appointment> getAppointments() {
         return appointments;
     }
+
+    public ArrayList<Appointment> getFirstFutureAppointments(int number){
+        ArrayList<Appointment> toReturn = new ArrayList<>();
+        LocalDateTime today = LocalDateTime.now();
+        int counter = 0;
+        for (Appointment a: appointments){
+            if (a.getDateStart().isAfter(today)){
+                toReturn.add(a);
+                counter++;
+            }
+            if (counter == number){
+                break;
+            }
+        }
+        return toReturn;
+    }
 }

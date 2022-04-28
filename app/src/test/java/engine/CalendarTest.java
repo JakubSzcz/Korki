@@ -58,4 +58,46 @@ public class CalendarTest {
         assertTrue(appointment2.equals(appointments.get(1)));
 
     }
+
+    @Test
+    public void getFirstFutureAppointments(){
+        // teacher
+        Teacher teacher = Teacher.getTeacher();
+        // student
+        Student student = new Student("A", "C", "C", "D");
+        // appointments
+        teacher.addSingleAppointment(student, "Meet1", 0, LocalDateTime.now().plusWeeks(1), 90);
+
+        // result
+        ArrayList<Appointment> result = teacher.getFirstFutureAppointments(3);
+        // tests
+        assertEquals(1, result.size());
+        assertEquals("Meet1", result.get(0).getTitle());
+
+        // add new
+        teacher.addSingleAppointment(student, "Meet2", 0, LocalDateTime.now().plusWeeks(2), 90);
+        teacher.addSingleAppointment(student, "Meet3", 0, LocalDateTime.now().plusWeeks(3), 90);
+        teacher.addSingleAppointment(student, "Meet4", 0, LocalDateTime.now().plusWeeks(4), 90);
+
+        // result
+        result = teacher.getFirstFutureAppointments(3);
+        // tests
+        assertEquals(3, result.size());
+        assertEquals("Meet1", result.get(0).getTitle());
+        assertEquals("Meet2", result.get(1).getTitle());
+        assertEquals("Meet3", result.get(2).getTitle());
+
+        // add new
+        teacher.addSingleAppointment(student, "Meet5", 0, LocalDateTime.now().plusDays(1), 90);
+        teacher.addSingleAppointment(student, "Meet6", 0, LocalDateTime.now().minusDays(1), 90);
+
+        // result
+        result = teacher.getFirstFutureAppointments(3);
+        // tests
+        assertEquals(3, result.size());
+        assertEquals("Meet5", result.get(0).getTitle());
+        assertEquals("Meet1", result.get(1).getTitle());
+        assertEquals("Meet2", result.get(2).getTitle());
+
+    }
 }
