@@ -8,10 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentAddStudentBinding;
-import com.example.korki.ui.appointments.AppointmentsFragment;
 import engine.Student;
 import engine.Teacher;
 
@@ -119,8 +117,6 @@ public class AddStudentFragment extends Fragment {
                 }
             }
         });
-
-
 
         // Inflate the layout for this fragment
         return root;
