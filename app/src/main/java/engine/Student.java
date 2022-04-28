@@ -30,7 +30,7 @@ public class Student implements Serializable {
     private final LocalDateTime added;
 
     //list of assigned assignments
-    private ArrayList<AssignedAssignment> assignments;
+    final private ArrayList<AssignedAssignment> assignments;
 
     /////////////////////////////////////////////////////
     //                   functions                     //
@@ -148,7 +148,7 @@ public class Student implements Serializable {
 
     public String getPhone() {return phone;}
 
-    public String getMarked() {return String.valueOf(added);}
+    public String getAdded() {return String.valueOf(added);}
 
     public String getDescription() {return description;}
 

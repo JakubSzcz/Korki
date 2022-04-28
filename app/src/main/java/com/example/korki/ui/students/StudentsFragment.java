@@ -5,34 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.databinding.FragmentStudentsBinding;
-import com.example.korki.ui.appointments.AddAppointmentFragment;
-import com.example.korki.ui.appointments.AppointmentsAdapter;
-import com.example.korki.ui.students.StudentsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import engine.Student;
 import engine.Teacher;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class StudentsFragment extends Fragment {
 
-    private StudentsViewModel studentsViewModel;
+    // variables
     private FragmentStudentsBinding binding;
-    public void deleteStudent(){
 
-    }
-
+    //functions
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        // android defaults
-        studentsViewModel =
-                new ViewModelProvider(this).get(StudentsViewModel.class);
 
         binding = FragmentStudentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -41,12 +30,13 @@ public class StudentsFragment extends Fragment {
         final ListView studentsList = binding.studentsList;
         final ArrayList<Student> students = Teacher.getTeacher().getStudents();
 
+        //students adapter
         StudentsAdapter studentsAdapter = new StudentsAdapter(
                 Objects.requireNonNull(this.getContext()), students,getParentFragmentManager(),getResources());
         studentsList.setAdapter(studentsAdapter);
 
 
-        // add student button
+        // add student floating button
         final FloatingActionButton addStudentBut = binding.addStudentBut;
         addStudentBut.setOnClickListener(view -> {
             getParentFragmentManager()
@@ -58,7 +48,7 @@ public class StudentsFragment extends Fragment {
                     .commit();
         });
 
-        // return
+        // return root view
         return root;
     }
 
