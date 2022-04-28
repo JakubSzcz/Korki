@@ -4,19 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.databinding.FragmentAppointmentsBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import engine.Appointment;
-import engine.Student;
 import engine.Teacher;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -34,7 +29,7 @@ public class AppointmentsFragment extends Fragment {
 
         // appointments list
         final ListView appointmentsList = binding.appointmentsList;
-        final ArrayList<Appointment> appointments = Teacher.getTeacher().getAppointments();
+        final ArrayList<Appointment> appointments = Teacher.getTeacher().getAllAppointments();
 
         AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(
                 Objects.requireNonNull(this.getContext()), appointments, getParentFragmentManager(), getResources());

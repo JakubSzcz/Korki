@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class Appointment implements Serializable {
+public class Appointment implements Serializable, Comparable<Appointment> {
     /////////////////////////////////////////////////////
     //                   variables                     //
     /////////////////////////////////////////////////////
@@ -70,14 +70,21 @@ public class Appointment implements Serializable {
         }
     }
 
-    // get duration
-    public double getDuration(){
-        return ChronoUnit.MINUTES.between(dateStart, dateEnd);
+    // compare
+    @Override
+    public int compareTo(Appointment appointment) {
+        return dateStart.compareTo(appointment.getDateStart());
     }
+
 
     /////////////////////////////////////////////////////
     //                    getters                      //
     /////////////////////////////////////////////////////
+
+    // get duration
+    public double getDuration(){
+        return ChronoUnit.MINUTES.between(dateStart, dateEnd);
+    }
 
     public Student getStudent() {
         return student;

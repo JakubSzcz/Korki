@@ -5,10 +5,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class Calendar implements Serializable {
     /////////////////////////////////////////////////////
@@ -39,6 +36,7 @@ public class Calendar implements Serializable {
             return false;
         }else{
             appointments.add(appointment);
+            sort();
             return true;
         }
     }
@@ -83,10 +81,11 @@ public class Calendar implements Serializable {
             currentDate = currentDate.plusDays(1);
         }
         appointments.addAll(periodicAppointment);
+        sort();
         return true;
     }
 
-    // add single appointment
+    // delete appointment
     public boolean deleteAppointment(Appointment appointment){
         if (appointments.contains(appointment)){
             appointments.remove(appointment);
@@ -105,6 +104,11 @@ public class Calendar implements Serializable {
             }
         }
         return false;
+    }
+
+    // sort appointments
+    public void sort(){
+        Collections.sort(appointments);
     }
 
     // appointments getter

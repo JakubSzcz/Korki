@@ -5,13 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import com.example.korki.R;
 import com.example.korki.databinding.FragmentHomeBinding;
 import com.example.korki.ui.appointments.AppointmentsAdapter;
 import engine.Appointment;
@@ -32,7 +27,7 @@ public class HomeFragment extends Fragment {
 
         // appointments list
         final ListView appointmentsList = binding.appointmentsList;
-        final ArrayList<Appointment> appointments = Teacher.getTeacher().getAppointments();
+        final ArrayList<Appointment> appointments = Teacher.getTeacher().getFirstFutureAppointments(3);
         if (appointments.size() > 0){
             binding.listEmpty.setVisibility(View.GONE);
         }

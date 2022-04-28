@@ -202,8 +202,24 @@ public class Teacher {
     }
 
     // appointments from calendar
-    public ArrayList<Appointment> getAppointments(){
+    public ArrayList<Appointment> getAllAppointments(){
         return calendar.getAppointments();
+    }
+    public ArrayList<Appointment> getFirstFutureAppointments(int number){
+        ArrayList<Appointment> toReturn = new ArrayList<>();
+        ArrayList<Appointment> appointments = calendar.getAppointments();
+        LocalDateTime today = LocalDateTime.now();
+        int counter = 0;
+        for (Appointment a: appointments){
+            if (a.getDateStart().isAfter(today)){
+                toReturn.add(a);
+            }
+            counter++;
+            if (counter == number){
+                break;
+            }
+        }
+        return toReturn;
     }
 
     public ArrayList<Student> getStudents() {
