@@ -23,14 +23,11 @@ import java.util.Objects;
 
 public class AppointmentsFragment extends Fragment {
 
-    private AppointmentsViewModel appointmentsViewModel;
     private FragmentAppointmentsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // android defaults
-        appointmentsViewModel =
-                new ViewModelProvider(this).get(AppointmentsViewModel.class);
 
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -40,18 +37,8 @@ public class AppointmentsFragment extends Fragment {
         final ArrayList<Appointment> appointments = Teacher.getTeacher().getAppointments();
 
         AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(
-                Objects.requireNonNull(this.getContext()), appointments);
+                Objects.requireNonNull(this.getContext()), appointments, getParentFragmentManager(), getResources());
         appointmentsList.setAdapter(appointmentsAdapter);
-        appointmentsList.setOnItemClickListener((adapterView, view, i, l) -> {
-            Appointment appointment = (Appointment)adapterView.getAdapter().getItem(i);
-            getParentFragmentManager()
-                    .beginTransaction()
-                    .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                            new EditAppointmentFragment(appointment))
-                    .addToBackStack(null)
-                    .setReorderingAllowed(true)
-                    .commit();
-        });
 
         // add appointment button
         final FloatingActionButton addAppointmentBut = binding.addAppointmentBut;
