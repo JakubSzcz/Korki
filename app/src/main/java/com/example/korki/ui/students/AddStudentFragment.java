@@ -53,8 +53,6 @@ public class AddStudentFragment extends Fragment {
         binding = FragmentAddStudentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_student, container, false);
     }
