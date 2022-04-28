@@ -1,9 +1,10 @@
 package engine;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class Appointment {
+public class Appointment implements Serializable {
     /////////////////////////////////////////////////////
     //                   variables                     //
     /////////////////////////////////////////////////////

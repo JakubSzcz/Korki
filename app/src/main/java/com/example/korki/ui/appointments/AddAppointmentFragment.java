@@ -142,53 +142,20 @@ public class AddAppointmentFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(dayOfWeekActive.size() == 0){
-                    int day = date.getDayOfMonth();
-                    int month = date.getMonth();
-                    int year = date.getYear();
-                    int hour = time.getHour();
-                    int minute = time.getMinute();
-                    int finalPrice = price.getValue();
-                    int finalDuration = duration.getValue();
-                    String finalTitle = title.getText().toString();
-                    Student student = (Student) studentsSpinner.getSelectedItem();
-                    LocalDateTime dateStart = LocalDateTime.of(year, month, day, hour, minute);
-                    boolean worked = Teacher.getTeacher().getCalendar().addSingleAppointment(student,
-                            finalTitle, finalPrice, dateStart, finalDuration);
-                    if (worked){
-                        getParentFragmentManager()
-                                .beginTransaction()
-                                .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                                        new AppointmentsFragment())
-                                .addToBackStack(null)
-                                .setReorderingAllowed(true)
-                                .commit();
-                    }else{
-                        Toast.makeText(view.getContext(), "This date is taken",
-                                Toast.LENGTH_LONG).show();
-                    }
-                }else{
-                    String startingDateString = startingDate.getText().toString();
-                    try{
-                        LocalDate staringDateDate = LocalDate.parse(startingDateString);
+                if (Teacher.getTeacher().getStudents().size() > 0){
+                    if(dayOfWeekActive.size() == 0){
+                        int day = date.getDayOfMonth();
+                        int month = date.getMonth();
+                        int year = date.getYear();
+                        int hour = time.getHour();
+                        int minute = time.getMinute();
+                        int finalPrice = price.getValue();
+                        int finalDuration = duration.getValue();
                         String finalTitle = title.getText().toString();
                         Student student = (Student) studentsSpinner.getSelectedItem();
-                        int finalPrice = price.getValue();
-                        HashMap<DayOfWeek, LocalTime> timeInfo = new HashMap<>();
-                        HashMap<DayOfWeek, Integer> durations = new HashMap<>();
-                        DayInfoAdapter dayInfoAdapter = (DayInfoAdapter) dayInfoList.getAdapter();
-                        for (DayOfWeek dayOfWeek : dayOfWeekActive){
-                            int hour = dayInfoAdapter.getHour(dayOfWeek);
-                            int minute = dayInfoAdapter.getMinute(dayOfWeek);
-                            int duration = dayInfoAdapter.getDuration(dayOfWeek);
-                            LocalTime dateStart = LocalTime.of(hour, minute);
-                            timeInfo.put(dayOfWeek, dateStart);
-                            durations.put(dayOfWeek, duration);
-                        }
-                        int howManyWeeksInt = howManyWeeks.getValue();
-                        boolean worked = Teacher.getTeacher().getCalendar().addPeriodicAppointment(
-                                student, finalTitle, finalPrice, timeInfo, durations,
-                                howManyWeeksInt, staringDateDate);
+                        LocalDateTime dateStart = LocalDateTime.of(year, month, day, hour, minute);
+                        boolean worked = Teacher.getTeacher().addSingleAppointment(student,
+                                finalTitle, finalPrice, dateStart, finalDuration);
                         if (worked){
                             getParentFragmentManager()
                                     .beginTransaction()
@@ -197,14 +164,52 @@ public class AddAppointmentFragment extends Fragment {
                                     .addToBackStack(null)
                                     .setReorderingAllowed(true)
                                     .commit();
-                        }else {
-                            Toast.makeText(view.getContext(), "This dates are taken",
+                        }else{
+                            Toast.makeText(view.getContext(), "This date is taken",
                                     Toast.LENGTH_LONG).show();
                         }
-                    }catch (java.time.format.DateTimeParseException exception){
-                        Toast.makeText(view.getContext(), "Date wrong format",
-                                Toast.LENGTH_LONG).show();
+                    }else{
+                        String startingDateString = startingDate.getText().toString();
+                        try{
+                            LocalDate staringDateDate = LocalDate.parse(startingDateString);
+                            String finalTitle = title.getText().toString();
+                            Student student = (Student) studentsSpinner.getSelectedItem();
+                            int finalPrice = price.getValue();
+                            HashMap<DayOfWeek, LocalTime> timeInfo = new HashMap<>();
+                            HashMap<DayOfWeek, Integer> durations = new HashMap<>();
+                            DayInfoAdapter dayInfoAdapter = (DayInfoAdapter) dayInfoList.getAdapter();
+                            for (DayOfWeek dayOfWeek : dayOfWeekActive){
+                                int hour = dayInfoAdapter.getHour(dayOfWeek);
+                                int minute = dayInfoAdapter.getMinute(dayOfWeek);
+                                int duration = dayInfoAdapter.getDuration(dayOfWeek);
+                                LocalTime dateStart = LocalTime.of(hour, minute);
+                                timeInfo.put(dayOfWeek, dateStart);
+                                durations.put(dayOfWeek, duration);
+                            }
+                            int howManyWeeksInt = howManyWeeks.getValue();
+                            boolean worked = Teacher.getTeacher().addPeriodicAppointment(
+                                    student, finalTitle, finalPrice, timeInfo, durations,
+                                    howManyWeeksInt, staringDateDate);
+                            if (worked){
+                                getParentFragmentManager()
+                                        .beginTransaction()
+                                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                                new AppointmentsFragment())
+                                        .addToBackStack(null)
+                                        .setReorderingAllowed(true)
+                                        .commit();
+                            }else {
+                                Toast.makeText(view.getContext(), "This dates are taken",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }catch (java.time.format.DateTimeParseException exception){
+                            Toast.makeText(view.getContext(), "Date wrong format",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
+                }else{
+                    Toast.makeText(view.getContext(), "You have no students added",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });

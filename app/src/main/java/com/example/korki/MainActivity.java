@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.korki.databinding.ActivityMainBinding;
+import engine.Teacher;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // set path for teacher engine
+        Teacher.setPath(this.getApplicationContext().getFilesDir());
     }
 
     @Override

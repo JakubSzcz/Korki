@@ -1,5 +1,6 @@
 package engine;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
-public class Calendar {
+public class Calendar implements Serializable {
     /////////////////////////////////////////////////////
     //                   variables                     //
     /////////////////////////////////////////////////////
@@ -42,7 +43,7 @@ public class Calendar {
         }
     }
 
-    // add single appointment, timeInfo = {'dayOfWeek': [LocalTime - timeStart, int - duration]}
+    // add periodic appointment, timeInfo = {'dayOfWeek': [LocalTime - timeStart, int - duration]}
     public boolean addPeriodicAppointment(Student student, String title, double price,
                                           HashMap<DayOfWeek, LocalTime> timeInfo,
                                           HashMap<DayOfWeek, Integer> durations,

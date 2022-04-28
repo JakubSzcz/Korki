@@ -2,10 +2,11 @@ package engine;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Serializable {
     /////////////////////////////////////////////////////
     //                   variables                     //
     /////////////////////////////////////////////////////

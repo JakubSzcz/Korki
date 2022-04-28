@@ -37,7 +37,7 @@ public class AppointmentsFragment extends Fragment {
 
         // appointments list
         final ListView appointmentsList = binding.appointmentsList;
-        final ArrayList<Appointment> appointments = Teacher.getTeacher().getCalendar().getAppointments();
+        final ArrayList<Appointment> appointments = Teacher.getTeacher().getAppointments();
 
         AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(
                 Objects.requireNonNull(this.getContext()), appointments);

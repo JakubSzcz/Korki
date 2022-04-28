@@ -1,7 +1,12 @@
 package engine;
 
+import java.io.*;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Teacher {
     /////////////////////////////////////////////////////
@@ -17,6 +22,9 @@ public class Teacher {
     // assignment list
     private ArrayList<Assignment> assignments;
 
+    // path to storage
+    private static File path;
+
     // singleton teacher
     private static Teacher teacher;
 
@@ -26,16 +34,40 @@ public class Teacher {
 
     // constructor
     private Teacher(){
-        // TODO: load or initialize variables
+        if (path != null){
+            // read calendar
+            File calendarFile = new File(path, CALENDAR_FILENAME);
+            try {
+                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(calendarFile));
+                this.calendar = (Calendar)stream.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                this.calendar = new Calendar();
+            }
+            // read student
+            File studentsFile = new File(path, STUDENTS_FILENAME);
+            try {
+                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(studentsFile));
+                this.students = (ArrayList<Student>) stream.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                this.students = new ArrayList<>();
+            }
+            // read assignments
+            File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
+            try {
+                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(assignmentsFile));
+                this.assignments = (ArrayList<Assignment>) stream.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                this.assignments = new ArrayList<>();
+            }
+        }else{
+            // initialize empty
+            this.calendar = new Calendar();
+            this.students = new ArrayList<>();
+            this.assignments = new ArrayList<>();
+        }
+
         ////////// tests purposes
-        this.calendar = new Calendar();
-        this.students = new ArrayList<>();
-        addStudent("Jan", "Kowalski", "C", "D");
-        /*for (int i = 0; i < 10; i++){
-            calendar.addSingleAppointment(students.get(0), "Meeting: " + i, 50,
-                    LocalDateTime.now().plusDays(i), 90);
-        }*/
-        //////////
+        addStudent("Jan", "Kowalski", "jan.kowalski@example.com", "999888777");
     }
 
     // add student to students list
@@ -76,6 +108,80 @@ public class Teacher {
         }
     }
 
+    // add single appointment
+    public boolean addSingleAppointment(Student student, String title, double price,
+                                        LocalDateTime dateStart, int duration){
+        boolean worked = calendar.addSingleAppointment(student, title, price, dateStart, duration);
+        if (worked){
+            saveCalendar();
+        }
+        return worked;
+    }
+
+    // add periodic appointment, timeInfo = {'dayOfWeek': [LocalTime - timeStart, int - duration]}
+    public boolean addPeriodicAppointment(Student student, String title, double price,
+                                          HashMap<DayOfWeek, LocalTime> timeInfo,
+                                          HashMap<DayOfWeek, Integer> durations,
+                                          int howManyWeeks, LocalDate startingDate){
+        boolean worked = calendar.addPeriodicAppointment(student, title, price, timeInfo,
+                durations, howManyWeeks, startingDate);
+        if (worked){
+            saveCalendar();
+        }
+        return worked;
+    }
+
+    // deletes appointment
+    public boolean deleteAppointment(Appointment appointment){
+        boolean worked = calendar.deleteAppointment(appointment);
+        if (worked){
+            saveCalendar();
+        }
+        return worked;
+    }
+
+    // set path
+    public static void setPath(File path){
+        Teacher.path = path;
+    }
+
+    // save calendar
+    public void saveCalendar(){
+        File calendarFile = new File(path, CALENDAR_FILENAME);
+        try {
+            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(calendarFile));
+            stream.writeObject(calendar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // save students
+    public void saveStudents(){
+        File studentsFile = new File(path, STUDENTS_FILENAME);
+        try {
+            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(studentsFile));
+            stream.writeObject(students);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // save assignments
+    public void saveAssignments(){
+        File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
+        try {
+            ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(assignmentsFile));
+            stream.writeObject(assignments);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /////////////////////////////////////////////////////
+    //                    getters                      //
+    /////////////////////////////////////////////////////
+
     // get singleton teacher
     public static Teacher getTeacher(){
         if (teacher == null){
@@ -84,12 +190,9 @@ public class Teacher {
         return teacher;
     }
 
-    /////////////////////////////////////////////////////
-    //                    getters                      //
-    /////////////////////////////////////////////////////
-
-    public Calendar getCalendar() {
-        return calendar;
+    // appointments from calendar
+    public ArrayList<Appointment> getAppointments(){
+        return calendar.getAppointments();
     }
 
     public ArrayList<Student> getStudents() {
@@ -115,4 +218,9 @@ public class Teacher {
     // price
     public final static int MIN_PRICE = 0;
     public final static int MAX_PRICE = 999;
+
+    // file names
+    public final String ASSIGNMENTS_FILENAME = "appointments";
+    public final String STUDENTS_FILENAME = "students";
+    public final String CALENDAR_FILENAME = "calendar";
 }

@@ -1,9 +1,10 @@
 package engine;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Assignment {
+public class Assignment implements Serializable {
     /////////////////////////////////////////////////////
     //                   variables                     //
     /////////////////////////////////////////////////////

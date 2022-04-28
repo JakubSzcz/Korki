@@ -104,8 +104,8 @@ public class EditAppointmentFragment extends Fragment {
             String finalTitle = title.getText().toString();
             Student student = (Student) studentsSpinner.getSelectedItem();
             LocalDateTime finalDateStart = LocalDateTime.of(year, month, day, hour, minute);
-            Teacher.getTeacher().getCalendar().deleteAppointment(appointment);
-            boolean worked = Teacher.getTeacher().getCalendar().addSingleAppointment(student,
+            Teacher.getTeacher().deleteAppointment(appointment);
+            boolean worked = Teacher.getTeacher().addSingleAppointment(student,
                     finalTitle, finalPrice, finalDateStart, finalDuration);
             if (worked){
                 getParentFragmentManager()
@@ -116,7 +116,7 @@ public class EditAppointmentFragment extends Fragment {
                         .setReorderingAllowed(true)
                         .commit();
             }else{
-                Teacher.getTeacher().getCalendar().addSingleAppointment(appointment.getStudent(),
+                Teacher.getTeacher().addSingleAppointment(appointment.getStudent(),
                         appointment.getTitle(), appointment.getPrice(),
                         appointment.getDateStart(), (int)appointment.getDuration());
                 Toast.makeText(view.getContext(), "This date is taken",
