@@ -72,12 +72,18 @@ public class Teacher {
         addStudent("Krzysztof", "Piątek", "krzyszotf.piatek@example.com", "869886771");
     }
 
-    // add student to students list
+    // add student to students list with students values
     public void addStudent(String firstName, String surName, String email, String phone){
         Student student = new Student(firstName, surName, email, phone);
         students.add(student);
+        saveStudents();
     }
 
+    //add student to students list with student object
+    public void addStudent(Student student){
+        students.add(student);
+        saveStudents();
+    }
     // delete student from students list
     public void deleteStudent(Student studentToDelete){
         if( students.contains(studentToDelete)){
@@ -90,18 +96,21 @@ public class Teacher {
                 }
             }
         }
+        saveStudents();
     }
 
     // create assignment with attachments
     public void createAssignment(String name, String description, String content ,ArrayList<String> attachmentsFileNames){
         Assignment assignment = new Assignment(name, description, content ,attachmentsFileNames);
         assignments.add(assignment);
+        saveAssignments();
     }
 
     // create assignment without attachments
     public void createAssignment(String name, String description, String content){
         Assignment assignment = new Assignment(name, description, content);
         assignments.add(assignment);
+        saveAssignments();
     }
 
     //

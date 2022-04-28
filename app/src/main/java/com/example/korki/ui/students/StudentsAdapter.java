@@ -2,6 +2,7 @@ package com.example.korki.ui.students;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,12 @@ import java.util.ArrayList;
 public class StudentsAdapter extends ArrayAdapter<Student> {
     // constructor
     private FragmentManager fragmentManager;
-    public StudentsAdapter(@NonNull @NotNull Context context, ArrayList<Student> students, FragmentManager fragmentManager) {
+    private Resources resources;
+    public StudentsAdapter(@NonNull @NotNull Context context, ArrayList<Student> students, FragmentManager fragmentManager,
+    Resources resources) {
         super(context, 0, students);
         this.fragmentManager = fragmentManager;
+        this.resources = resources;
     }
 
     // override getView method
@@ -43,6 +47,8 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         TextView surName = convertView.findViewById(R.id.surName);
         Button editBut = convertView.findViewById(R.id.edit_student_button);
         Button deleteBut = convertView.findViewById(R.id.delete_student_button);
+        editBut.setBackgroundColor(resources.getColor(R.color.apply_button));
+        deleteBut.setBackgroundColor(resources.getColor(R.color.cancel_button));
 
         //edit button listener
         editBut.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +75,6 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
                             .addToBackStack(null)
                             .setReorderingAllowed(true)
                             .commit();
-                }else{
-
                 }
             }
         });

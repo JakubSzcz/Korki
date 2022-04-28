@@ -37,6 +37,17 @@ public class Student implements Serializable {
     /////////////////////////////////////////////////////
 
     //constructor
+    public Student(String firstName, String surName, String email, String phone, String description) {
+        this.firstName = firstName;
+        this.surName = surName;
+        this.email = email;
+        this.phone = phone;
+        this.added = LocalDateTime.now();
+        this.description = description;
+        this.assignments = new ArrayList<>();
+    }
+
+    //constructor without description
     public Student(String firstName, String surName, String email, String phone) {
         this.firstName = firstName;
         this.surName = surName;

@@ -1,7 +1,9 @@
 package com.example.korki.ui.students;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,27 +11,31 @@ import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentAddStudentBinding;
-
+import com.example.korki.ui.appointments.AppointmentsFragment;
+import engine.Student;
+import engine.Teacher;
 
 
 public class AddStudentFragment extends Fragment {
 
     // defaults
-    private StudentsViewModel addStudentViewModel;
-
     private FragmentAddStudentBinding binding;
 
     // variables
 
-    EditText firstName = binding.firstNameEdit;
+    EditText firstName;
 
-    EditText surname = binding.surnameEdit;
+    EditText surname;
 
-    EditText email = binding.emailEdit;
+    EditText email;
 
-    EditText phone = binding.phoneEdit;
+    EditText phone;
 
-    EditText description = binding.descriptionEdit;
+    EditText description;
+
+    Button cancelBut;
+
+    Button addBut;
 
     public AddStudentFragment() {
         // Required empty public constructor
@@ -46,14 +52,77 @@ public class AddStudentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // android defaults
-        addStudentViewModel =
-                new ViewModelProvider(this).get(StudentsViewModel.class);
-
         binding = FragmentAddStudentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //initialization
+        firstName = binding.firstNameEdit;
+        surname = binding.surnameEdit;
+        phone = binding.phoneEdit;
+        email = binding.emailEdit;
+        description = binding.descriptionEdit;
+        cancelBut = binding.cancelBut;
+        addBut = binding.addBut;
+
+        //adding handling buttons logic
+        //cancel button
+        cancelBut.setBackgroundColor(cancelBut.getContext().getResources().getColor(R.color.cancel_button));
+        cancelBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                new StudentsFragment())
+                        .addToBackStack(null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            }
+        });
+
+        //add button
+        addBut.setBackgroundColor(addBut.getContext().getResources().getColor(R.color.apply_button));
+        addBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //checking if required fields are filled
+                boolean emptyFields = false;
+                if(firstName.getText().toString().equals("")){
+                    emptyFields = true;
+                }
+                if(surname.getText().toString().equals("")){
+                    emptyFields = true;
+                }
+                if(email.getText().toString().equals("")){
+                    emptyFields = true;
+                }
+                if(phone.getText().toString().equals("")){
+                    emptyFields = true;
+                }
+
+                //creating new student if required fields are filled and adding it to teacher.students
+                if(!emptyFields){
+                    Student studentToAdd = new Student(firstName.getText().toString(),surname.getText().toString(),
+                            phone.getText().toString(),email.getText().toString(),description.getText().toString());
+                    Teacher.getTeacher().addStudent(studentToAdd);
+                    Toast.makeText(getContext(),"New student has been added.",Toast.LENGTH_LONG).show();
+                    getParentFragmentManager()
+                            .beginTransaction()
+                            .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                    new StudentsFragment())
+                            .addToBackStack(null)
+                            .setReorderingAllowed(true)
+                            .commit();
+                }else {
+                    Toast.makeText(getContext(),"Not all required fields were filled.",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_student, container, false);
+        return root;
     }
 }
