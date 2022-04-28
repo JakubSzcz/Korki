@@ -102,6 +102,22 @@ public class Student implements Serializable {
         this.description = description;
     }
 
+    //check if both students are equal
+    public boolean equals(Student student){
+        if(!this.firstName.equals(student.getFirstName())){
+            return false;
+        }else if(!this.surName.equals(student.getSurName())) {
+            return false;
+        }else if(!this.email.equals(student.getEmail())){
+            return false;
+        }else if(!this.phone.equals(student.getPhone())){
+            return false;
+        }else if(!this.description.equals(student.description)){
+            return false;
+        }
+        return true;
+    }
+
     // to string
     @NotNull
     @Override

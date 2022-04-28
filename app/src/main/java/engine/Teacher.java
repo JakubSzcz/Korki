@@ -68,6 +68,8 @@ public class Teacher {
 
         ////////// tests purposes
         addStudent("Jan", "Kowalski", "jan.kowalski@example.com", "999888777");
+        addStudent("Piotr", "Nowak", "piotr.nowak@example.com", "939582757");
+        addStudent("Krzysztof", "Piątek", "krzyszotf.piatek@example.com", "869886771");
     }
 
     // add student to students list
@@ -77,8 +79,17 @@ public class Teacher {
     }
 
     // delete student from students list
-    public void deleteStudent(){
-        // TODO
+    public void deleteStudent(Student studentToDelete){
+        if( students.contains(studentToDelete)){
+            students.remove(studentToDelete);
+        }else {
+            for(Student studentToCheck : students){
+                if(studentToCheck.equals(studentToDelete)){
+                    students.remove(studentToCheck);
+                    break;
+                }
+            }
+        }
     }
 
     // create assignment with attachments
@@ -176,6 +187,7 @@ public class Teacher {
             e.printStackTrace();
         }
     }
+
 
     /////////////////////////////////////////////////////
     //                    getters                      //

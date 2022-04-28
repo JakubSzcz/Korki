@@ -41,7 +41,7 @@ public class StudentsFragment extends Fragment {
         final ArrayList<Student> students = Teacher.getTeacher().getStudents();
 
         StudentsAdapter studentsAdapter = new StudentsAdapter(
-                Objects.requireNonNull(this.getContext()), students);
+                Objects.requireNonNull(this.getContext()), students,getParentFragmentManager());
         studentsList.setAdapter(studentsAdapter);
 
 
