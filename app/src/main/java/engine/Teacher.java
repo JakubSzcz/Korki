@@ -67,9 +67,9 @@ public class Teacher {
         }
 
         ////////// tests purposes
-        addStudent("Jan", "Kowalski", "jan.kowalski@example.com", "999888777");
-        addStudent("Piotr", "Nowak", "piotr.nowak@example.com", "939582757");
-        addStudent("Krzysztof", "Piątek", "krzyszotf.piatek@example.com", "869886771");
+        //addStudent("Jan", "Kowalski", "jan.kowalski@example.com", "999888777");
+        //addStudent("Piotr", "Nowak", "piotr.nowak@example.com", "939582757");
+        //addStudent("Krzysztof", "Piątek", "krzyszotf.piatek@example.com", "869886771");
     }
 
     // add student to students list with students values

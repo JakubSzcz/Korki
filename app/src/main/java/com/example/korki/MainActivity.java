@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // set path for teacher engine
+        Teacher.setPath(this.getApplicationContext().getFilesDir());
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.appBarMain.fab.hide();
@@ -45,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        // set path for teacher engine
-        Teacher.setPath(this.getApplicationContext().getFilesDir());
     }
 
     @Override
