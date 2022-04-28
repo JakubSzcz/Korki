@@ -37,8 +37,8 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         // Lookup view for data population
         TextView firstName = convertView.findViewById(R.id.firstname);
         TextView surName = convertView.findViewById(R.id.surName);
-        Button editBut = convertView.findViewById(R.id.editStudentButton);
-        Button deleteBut = convertView.findViewById(R.id.deleteStudentButton);
+        //Button editBut = convertView.findViewById(R.id.editStudentButton);
+        //Button deleteBut = convertView.findViewById(R.id.deleteStudentButton);
 
         // Populate the data into the template view using the data object
         firstName.setText("First name: " + student.getFirstName());

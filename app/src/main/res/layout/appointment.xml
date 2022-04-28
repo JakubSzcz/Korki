@@ -4,22 +4,44 @@
                 android:layout_height="match_parent">
 
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20sp"
             android:id="@+id/name"/>
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
+            android:text="Jan Kowalski"
+            android:textSize="20sp"
             android:id="@+id/student"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/student"
+            android:textSize="20sp"
+            android:text="dd-mm-yyyyy"
             android:id="@+id/dateStart"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/dateStart"
+            android:textSize="20sp"
+            android:text="90 minutes"
             android:id="@+id/duration"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:text="Delete"
+            android:id="@+id/delete_button"
+            android:layout_marginTop="70dp"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/delete_button"
+            android:layout_marginEnd="10dp"
+            android:text="Edit"
+            android:layout_marginTop="70dp"
+            android:id="@+id/edit_button"/>
 </RelativeLayout>

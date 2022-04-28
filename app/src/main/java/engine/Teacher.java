@@ -132,12 +132,11 @@ public class Teacher {
     }
 
     // deletes appointment
-    public boolean deleteAppointment(Appointment appointment){
+    public void deleteAppointment(Appointment appointment){
         boolean worked = calendar.deleteAppointment(appointment);
         if (worked){
             saveCalendar();
         }
-        return worked;
     }
 
     // set path
