@@ -9,11 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
-import com.example.korki.databinding.FragmentAddAssignmentBinding;
 import com.example.korki.databinding.FragmentEditAssignmentBinding;
-import com.example.korki.databinding.FragmentEditStudentBinding;
-import com.example.korki.ui.appointments.AppointmentsFragment;
-import com.example.korki.ui.students.StudentsFragment;
 import engine.Assignment;
 import engine.Teacher;
 
