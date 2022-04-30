@@ -81,13 +81,26 @@
                   android:layout_below="@id/description_txt"
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/added_txt"
+                  android:layout_below="@id/description_content"
+                  android:text="Student added:"
+                  android:layout_marginStart="30dp"
+                  android:layout_marginTop="10dp"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/added_content"
+                  android:layout_below="@id/added_txt"
+                  android:layout_marginStart="30dp"
+                  android:layout_marginTop="10dp"/>
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:text="@string/cancel"
                 android:layout_marginStart="6dp"
                 android:id="@+id/cancel_but"
-                android:layout_below="@id/description_content"/>
+                android:layout_below="@id/added_content"/>
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -95,7 +108,7 @@
                 android:layout_marginEnd="6dp"
                 android:text="Call"
                 android:id="@+id/call_but"
-                android:layout_below="@id/description_content"/>
+                android:layout_below="@id/added_content"/>
 
     </RelativeLayout>
 

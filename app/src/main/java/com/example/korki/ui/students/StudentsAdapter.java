@@ -16,6 +16,8 @@ import com.example.korki.R;
 import engine.Student;
 import engine.Teacher;
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class StudentsAdapter extends ArrayAdapter<Student> {
@@ -46,6 +48,7 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         // Lookup view for data population
         TextView firstName = convertView.findViewById(R.id.firstname);
         TextView surName = convertView.findViewById(R.id.surName);
+        TextView added = convertView.findViewById(R.id.added);
         Button editBut = convertView.findViewById(R.id.edit_student_button);
         Button deleteBut = convertView.findViewById(R.id.delete_student_button);
         editBut.setBackgroundColor(resources.getColor(R.color.apply_button));
@@ -91,6 +94,7 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         // Populate the data into the template view using the data object
         firstName.setText("First name: " + student.getFirstName());
         surName.setText("Surname: " + student.getSurName());
+        added.setText("Student added: " + student.getAdded());
 
         //show students details
         convertView.setOnClickListener(new View.OnClickListener() {

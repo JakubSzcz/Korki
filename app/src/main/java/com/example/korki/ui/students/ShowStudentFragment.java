@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentShowStudentBinding;
-import com.example.korki.ui.appointments.AppointmentsFragment;
 import engine.Student;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,6 +34,8 @@ public class ShowStudentFragment extends Fragment {
     TextView phone;
 
     TextView description;
+
+    TextView added;
 
     Button cancelBut;
 
@@ -115,6 +116,7 @@ public class ShowStudentFragment extends Fragment {
         email = binding.emailContent;
         phone = binding.phoneContent;
         description = binding.descriptionContent;
+        added = binding.addedContent;
         callBut = binding.callBut;
         cancelBut = binding.cancelBut;
 
@@ -125,6 +127,7 @@ public class ShowStudentFragment extends Fragment {
             phone.setText(student.getPhone());
             email.setText(student.getEmail());
             description.setText(student.getDescription());
+            added.setText(student.getAdded());
         }
         //adding handling buttons logic
         //cancel button
