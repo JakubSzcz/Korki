@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentEditStudentBinding;
+import com.example.korki.ui.appointments.AppointmentsFragment;
 import engine.Student;
 import engine.Teacher;
 
@@ -50,6 +51,15 @@ public class EditStudentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if(student == null){
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.nav_host_fragment_content_main,
+                            new StudentsFragment())
+                    .addToBackStack(null)
+                    .setReorderingAllowed(true)
+                    .commit();
+        }
         //creating view
         binding = FragmentEditStudentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -64,12 +74,15 @@ public class EditStudentFragment extends Fragment {
         editBut = binding.editBut;
 
         //fulfil fields with content
-        firstName.setText(student.getFirstName());
-        surname.setText(student.getSurName());
-        phone.setText(student.getPhone());
-        email.setText(student.getEmail());
-        if(!student.getDescription().equals("")){
-            description.setText(student.getDescription());
+        if(!(student == null)) {
+            firstName.setText(student.getFirstName());
+            surname.setText(student.getSurName());
+            phone.setText(student.getPhone());
+            email.setText(student.getEmail());
+
+            if (!student.getDescription().equals("")) {
+                description.setText(student.getDescription());
+            }
         }
 
         //adding handling buttons logic

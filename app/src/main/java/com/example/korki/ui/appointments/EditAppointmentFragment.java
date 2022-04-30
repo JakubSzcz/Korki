@@ -34,7 +34,11 @@ public class EditAppointmentFragment extends Fragment {
     // appointment
     Appointment appointment;
 
-    // constructor
+    // constructors
+
+    public EditAppointmentFragment() {
+        // Required empty public constructor ---> musialem dodac bo bez pustego konstruktora crashowalo apke co jakis czas
+    }
     public EditAppointmentFragment(Appointment appointment) {
         this.appointment = appointment;
     }
@@ -51,6 +55,16 @@ public class EditAppointmentFragment extends Fragment {
         binding = FragmentEditAppointmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        if(appointment == null){
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.nav_host_fragment_content_main,
+                            new AppointmentsFragment())
+                    .addToBackStack(null)
+                    .setReorderingAllowed(true)
+                    .commit();
+        }
+
         // student spinner
         final Spinner studentsSpinner = binding.studentsSpinner;
         final ArrayList<Student> students = Teacher.getTeacher().getStudents();
@@ -63,32 +77,42 @@ public class EditAppointmentFragment extends Fragment {
         spinnerAdapter.addAll(students);
         spinnerAdapter.notifyDataSetChanged();
         studentsSpinner.setAdapter(spinnerAdapter);
-        studentsSpinner.setSelection(spinnerAdapter.getPosition(appointment.getStudent()));
+        if(!(appointment == null)) {
+            studentsSpinner.setSelection(spinnerAdapter.getPosition(appointment.getStudent()));
+        }
 
         // duration
         duration = binding.duration;
         durationLabel = binding.durationLabel;
         duration.setMinValue(Teacher.MIN_DURATION);
         duration.setMaxValue(Teacher.MAX_DURATION);
-        duration.setValue((int)appointment.getDuration());
+        if(!(appointment == null)) {
+            duration.setValue((int) appointment.getDuration());
+        }
 
         // price
         price = binding.price;
         price.setMinValue(Teacher.MIN_PRICE);
         price.setMaxValue(Teacher.MAX_PRICE);
-        price.setValue((int)appointment.getPrice());
+        if(!(appointment == null)) {
+            price.setValue((int) appointment.getPrice());
+        }
 
         // date time pickers
         date = binding.date;
-        LocalDateTime dateStart  = appointment.getDateStart();
-        date.updateDate(dateStart.getYear(), dateStart.getMonthValue(), dateStart.getDayOfMonth());
-        time = binding.time;
-        time.setHour(dateStart.getHour());
-        time.setMinute(dateStart.getMinute());
+        if(!(appointment == null)) {
+            LocalDateTime dateStart = appointment.getDateStart();
+            date.updateDate(dateStart.getYear(), dateStart.getMonthValue(), dateStart.getDayOfMonth());
+            time = binding.time;
+            time.setHour(dateStart.getHour());
+            time.setMinute(dateStart.getMinute());
+        }
 
         // title
         EditText title = binding.title;
-        title.setText(appointment.getTitle());
+        if(!(appointment == null)) {
+            title.setText(appointment.getTitle());
+        }
 
         // edit button
         final Button editButton = binding.editBut;
@@ -104,7 +128,9 @@ public class EditAppointmentFragment extends Fragment {
             String finalTitle = title.getText().toString();
             Student student = (Student) studentsSpinner.getSelectedItem();
             LocalDateTime finalDateStart = LocalDateTime.of(year, month, day, hour, minute);
-            Teacher.getTeacher().deleteAppointment(appointment);
+            if(!(appointment == null)) {
+                Teacher.getTeacher().deleteAppointment(appointment);
+            }
             boolean worked = Teacher.getTeacher().addSingleAppointment(student,
                     finalTitle, finalPrice, finalDateStart, finalDuration);
             if (worked){
@@ -116,11 +142,13 @@ public class EditAppointmentFragment extends Fragment {
                         .setReorderingAllowed(true)
                         .commit();
             }else{
-                Teacher.getTeacher().addSingleAppointment(appointment.getStudent(),
-                        appointment.getTitle(), appointment.getPrice(),
-                        appointment.getDateStart(), (int)appointment.getDuration());
-                Toast.makeText(view.getContext(), "This date is taken",
-                        Toast.LENGTH_LONG).show();
+                if(!(appointment == null)) {
+                    Teacher.getTeacher().addSingleAppointment(appointment.getStudent(),
+                            appointment.getTitle(), appointment.getPrice(),
+                            appointment.getDateStart(), (int) appointment.getDuration());
+                    Toast.makeText(view.getContext(), "This date is taken",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
