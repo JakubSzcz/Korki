@@ -128,7 +128,7 @@ public class ShowStudentFragment extends Fragment {
         });
 
         //call button
-        cancelBut.setBackgroundColor(callBut.getContext().getResources().getColor(R.color.teal_700));
+        callBut.setBackgroundColor(callBut.getContext().getResources().getColor(R.color.teal_700));
         callBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
