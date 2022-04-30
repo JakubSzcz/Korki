@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import com.example.korki.databinding.FragmentStudentsBinding;
+import com.example.korki.ui.appointments.EditAppointmentFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import engine.Student;
 import engine.Teacher;
@@ -20,6 +23,7 @@ public class StudentsFragment extends Fragment {
     private FragmentStudentsBinding binding;
 
     //functions
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -34,10 +38,6 @@ public class StudentsFragment extends Fragment {
         StudentsAdapter studentsAdapter = new StudentsAdapter(
                 Objects.requireNonNull(this.getContext()), students,getParentFragmentManager(),getResources());
         studentsList.setAdapter(studentsAdapter);
-
-        //show student details
-
-
 
 
         // add student floating button

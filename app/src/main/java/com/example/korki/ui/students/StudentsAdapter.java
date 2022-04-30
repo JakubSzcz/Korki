@@ -92,6 +92,21 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         firstName.setText("First name: " + student.getFirstName());
         surName.setText("Surname: " + student.getSurName());
 
+        //show students details
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager
+                        .beginTransaction()
+                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                new ShowStudentFragment(student))
+                        .addToBackStack(null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            }
+        });
+
+
         // Return the completed view to render on screen
         return convertView;
     }
