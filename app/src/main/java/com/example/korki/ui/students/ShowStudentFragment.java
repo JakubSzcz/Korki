@@ -1,15 +1,27 @@
 package com.example.korki.ui.students;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.korki.MainActivity;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentShowStudentBinding;
 import engine.Student;
+import org.jetbrains.annotations.NotNull;
 
 public class ShowStudentFragment extends Fragment {
 
@@ -32,13 +44,48 @@ public class ShowStudentFragment extends Fragment {
 
     Student student;
 
+    //identifies our request
+    private static final int REQUEST_CALL = 1;
     public ShowStudentFragment(Student student) {this.student = student;}
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+    //makes phone call
+    private void makePhoneCall(){
+        //get phone from student object and check if it is correct
+        String number = student.getPhone();
+        if(number.trim().length() > 0){
+
+            //check if permission was granted
+            if(ContextCompat.checkSelfPermission(getContext(),Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                //wasn't granted, and ask for permission
+                ActivityCompat.requestPermissions(getActivity() ,new String[] {Manifest.permission.CALL_PHONE},REQUEST_CALL);
+            }else{
+                //was granted, make a phone call
+                String dial = "tel:" + number;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+
+        }else{
+            //format is incorrect
+            Toast.makeText(getContext(),"Enter a phone number", Toast.LENGTH_LONG);
+        }
+    }
+
+    //ask for permission
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        if(requestCode == REQUEST_CALL){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                makePhoneCall();
+            }else{
+                Toast.makeText(getContext(),"Permision Denied",Toast.LENGTH_LONG);
+            }
+        }
     }
 
     @Override
@@ -85,10 +132,9 @@ public class ShowStudentFragment extends Fragment {
         callBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                makePhoneCall();
             }
         });
-
 
         return root;
     }
