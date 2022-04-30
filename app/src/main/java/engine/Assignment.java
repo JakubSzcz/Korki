@@ -83,4 +83,20 @@ public class Assignment implements Serializable {
     public String getContent() {return content;}
 
     public LocalDateTime getAdded() {return added;}
+
+    /////////////////////////////////////////////////////
+    //                    setters                     //
+    /////////////////////////////////////////////////////
+
+    public void setAssignmentName(String assignmentName) {
+        this.assignmentName = assignmentName;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

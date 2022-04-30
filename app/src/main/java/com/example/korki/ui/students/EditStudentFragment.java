@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentEditStudentBinding;
-import com.example.korki.ui.appointments.AppointmentsFragment;
 import engine.Student;
 import engine.Teacher;
 
