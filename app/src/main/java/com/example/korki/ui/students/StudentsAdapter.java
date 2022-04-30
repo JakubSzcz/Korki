@@ -56,9 +56,13 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
             @Override
             public void onClick(View view) {
                 if(Teacher.getTeacher().getStudents().size() > 0){
-                    //TODO edit student function
-                }else{
-
+                    fragmentManager
+                            .beginTransaction()
+                            .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                    new EditStudentFragment(student))
+                            .addToBackStack(null)
+                            .setReorderingAllowed(true)
+                            .commit();
                 }
             }
         });

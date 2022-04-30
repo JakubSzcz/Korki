@@ -153,4 +153,29 @@ public class Student implements Serializable {
     public String getDescription() {return description;}
 
     public ArrayList<AssignedAssignment> getAssignments() {return assignments;}
+
+    /////////////////////////////////////////////////////
+    //                    setters                      //
+    /////////////////////////////////////////////////////
+
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

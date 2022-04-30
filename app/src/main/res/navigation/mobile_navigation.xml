@@ -34,4 +34,8 @@
             android:id="@+id/add_student"
             android:name="com.example.korki.ui.students.StudentsFragment"
             tools:layout="@layout/fragment_add_student"/>
+    <fragment
+            android:id="@+id/edit_student"
+            android:name="com.example.korki.ui.students.EditStudentFragment"
+            tools:layout="@layout/fragment_edit_student"/>
 </navigation>
