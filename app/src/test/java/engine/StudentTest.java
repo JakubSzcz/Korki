@@ -8,19 +8,19 @@ import static org.junit.Assert.*;
 
 public class StudentTest {
 
-    //testing adding assignment function from list of existing assignments
+    //testing adding assignments function from list of existing assignments
     @Test
     public void addAssignedAssignmentFromList() {
         //student
         Student student = new Student("A", "C", "C", "D");
-        //assignment without attachments from the list
+        //assignments without attachments from the list
         Assignment assignment = new Assignment("a","b","c");
         //aasignment without attachments
         AssignedAssignment assignedAssignment = new AssignedAssignment("a","b","c");
 
-        //adding assignment from list
+        //adding assignments from list
         student.addAssignedAssignmentFromList(assignment);
-        //adding assignment directly
+        //adding assignments directly
         student.addAssignedAssignmentDirectly("a","b","c");
 
         assertTrue(student.getAssignments().get(0).equals(assignedAssignment));
@@ -32,9 +32,9 @@ public class StudentTest {
     public void deleteAssignment() {
         //student
         Student student = new Student("A", "C", "C", "D");
-        //assignment 1 without attachments from the list
+        //assignments 1 without attachments from the list
         Assignment assignment = new Assignment("a","b","c");
-        //assignment 1 without attachments from the list
+        //assignments 1 without attachments from the list
         Assignment assignment2 = new Assignment("d","e","f");
         //aasignment without attachments
         AssignedAssignment assignedAssignment = new AssignedAssignment("a","b","c");

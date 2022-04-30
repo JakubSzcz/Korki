@@ -16,5 +16,9 @@
                 android:id="@+id/nav_appointments"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_appointments"/>
+        <item
+                android:id="@+id/nav_assignments"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Assignments"/>
     </group>
 </menu>

@@ -107,6 +107,7 @@ public class ShowStudentFragment extends Fragment {
                     .setReorderingAllowed(true)
                     .commit();
         }
+
         binding = FragmentShowStudentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 

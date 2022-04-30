@@ -72,7 +72,7 @@ public class Student implements Serializable {
         assignments.add(newAssignment);
     }
 
-    //delete assigned assignment from a list of assignments assigned to the particular student
+    //delete assigned assignments from a list of assignments assigned to the particular student
     public void deleteAssignment(AssignedAssignment aassignmentToDelete){
         //checking if it contains same object
         if(assignments.contains(aassignmentToDelete)) {
@@ -88,7 +88,7 @@ public class Student implements Serializable {
         }
     }
 
-    //delete assignment from a list of assignments assigned to the particular student
+    //delete assignments from a list of assignments assigned to the particular student
     public void deleteAssignment(Assignment assignmentToDelete){
         //checking if it contains same object
         if(assignments.contains(assignmentToDelete)) {

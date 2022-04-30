@@ -8,7 +8,7 @@ public class AssignedAssignment extends Assignment{
     //                   variables                     //
     /////////////////////////////////////////////////////
 
-    //evaluation of assignment
+    //evaluation of assignments
     private String mark;
 
     //sent time

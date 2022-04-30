@@ -1,4 +1,4 @@
-package com.example.korki.ui.students;
+package com.example.korki.ui.assignments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,23 +13,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import com.example.korki.R;
-import engine.Student;
+import engine.Assignment;
 import engine.Teacher;
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class StudentsAdapter extends ArrayAdapter<Student> {
+public class AssignmentsAdapters extends ArrayAdapter<Assignment> {
 
-    // variables
+    //variables
     private final FragmentManager fragmentManager;
     private final Resources resources;
 
-    // constructor
-    public StudentsAdapter(@NonNull @NotNull Context context, ArrayList<Student> students, FragmentManager fragmentManager,
-    Resources resources) {
-        super(context, 0, students);
+    //constructor
+    public AssignmentsAdapters(@NonNull @NotNull Context context, ArrayList<Assignment> assignments, FragmentManager fragmentManager,
+                               Resources resources) {
+        super(context, 0, assignments);
         this.fragmentManager = fragmentManager;
         this.resources = resources;
     }
@@ -39,21 +38,19 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // Get the data item for this position
-        Student student = getItem(position);
+        //get data
+        Assignment assignment = getItem(position);
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.student,
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.assignment,
                     parent, false);
         }
-
         // Lookup view for data population
-        TextView firstName = convertView.findViewById(R.id.firstname);
-        TextView surName = convertView.findViewById(R.id.surName);
-        TextView added = convertView.findViewById(R.id.added);
-        Button editBut = convertView.findViewById(R.id.edit_student_button);
-        Button deleteBut = convertView.findViewById(R.id.delete_student_button);
+        TextView name = convertView.findViewById(R.id.assignment_name);
+        TextView added = convertView.findViewById(R.id.assignment_added);
+        Button editBut = convertView.findViewById(R.id.edit_assignment_button);
+        Button deleteBut = convertView.findViewById(R.id.delete_assignment_button);
         editBut.setBackgroundColor(resources.getColor(R.color.apply_button));
         deleteBut.setBackgroundColor(resources.getColor(R.color.cancel_button));
 
@@ -61,11 +58,11 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         editBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Teacher.getTeacher().getStudents().size() > 0){
+                if(Teacher.getTeacher().getAssignments().size() > 0){
                     fragmentManager
                             .beginTransaction()
                             .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                                    new EditStudentFragment(student))
+                                    new EditAssignmentFragment(assignment))
                             .addToBackStack(null)
                             .setReorderingAllowed(true)
                             .commit();
@@ -77,16 +74,16 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         deleteBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Teacher.getTeacher().getStudents().size() > 0){
-                    //delete student function
-                    Teacher.getTeacher().deleteStudent(student);
+                if(Teacher.getTeacher().getAssignments().size() > 0){
+                    //delete assignment function
+                    Teacher.getTeacher().deleteAssignment(assignment);
                     //toast message
-                    Toast.makeText(getContext(),"Student has been deleted",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"Assignment has been deleted",Toast.LENGTH_LONG).show();
                     //replacing new fragment
                     fragmentManager
                             .beginTransaction()
                             .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                                    new StudentsFragment())
+                                    new AssignmentsFragment())
                             .addToBackStack(null)
                             .setReorderingAllowed(true)
                             .commit();
@@ -95,26 +92,23 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         });
 
         // Populate the data into the template view using the data object
-        firstName.setText("First name: " + student.getFirstName());
-        surName.setText("Surname: " + student.getSurName());
-        added.setText("Student added: " + student.getAdded());
+        name.setText(assignment.getAssignmentName());
+        added.setText(assignment.getAdded().toString());
 
-        //show students details
+        //show assignment details
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fragmentManager
                         .beginTransaction()
                         .replace(com.example.korki.R.id.nav_host_fragment_content_main,
-                                new ShowStudentFragment(student))
+                                new ShowAssignmentFragment(assignment))
                         .addToBackStack(null)
                         .setReorderingAllowed(true)
                         .commit();
             }
         });
 
-
-        // Return the completed view to render on screen
         return convertView;
     }
 }

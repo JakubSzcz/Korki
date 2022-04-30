@@ -9,19 +9,19 @@ public class Assignment implements Serializable {
     //                   variables                     //
     /////////////////////////////////////////////////////
 
-    //name of assignment
+    //name of assignments
     private String assignmentName;
 
     //short description
     private String description;
 
-    //content of assignment
+    //content of assignments
     private String content;
 
-    //list of files names attached to the assignment
+    //list of files names attached to the assignments
     private ArrayList<String> attachmentsFileNames;
 
-    //when assignment was created
+    //when assignments was created
     private LocalDateTime added;
     /////////////////////////////////////////////////////
     //                   functions                     //
@@ -58,7 +58,7 @@ public class Assignment implements Serializable {
     }
 
     //check if both assigned assignments are equal
-    //chyba mozna zrobic lepiej, typu ze bede tworzyc obiekt assignment i wywoływać na nim te funkcje z gory, zeby nie
+    //chyba mozna zrobic lepiej, typu ze bede tworzyc obiekt assignments i wywoływać na nim te funkcje z gory, zeby nie
     //bylo dwoch praktycznie identycznych funkcji
     public boolean equals(AssignedAssignment aassignment){
         if (this.assignmentName != aassignment.getAssignmentName() ){
@@ -81,4 +81,6 @@ public class Assignment implements Serializable {
     public ArrayList<String> getAttachmentsFileNames() {return attachmentsFileNames;}
 
     public String getContent() {return content;}
+
+    public LocalDateTime getAdded() {return added;}
 }

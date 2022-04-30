@@ -19,7 +19,7 @@ public class Teacher {
     // calendar object which contains all appointments
     private Calendar calendar;
 
-    // assignment list
+    // assignments list
     private ArrayList<Assignment> assignments;
 
     // path to storage
@@ -99,16 +99,22 @@ public class Teacher {
         saveStudents();
     }
 
-    // create assignment with attachments
+    // create assignments with attachments
     public void createAssignment(String name, String description, String content ,ArrayList<String> attachmentsFileNames){
         Assignment assignment = new Assignment(name, description, content ,attachmentsFileNames);
         assignments.add(assignment);
         saveAssignments();
     }
 
-    // create assignment without attachments
+    // create assignments without attachments
     public void createAssignment(String name, String description, String content){
         Assignment assignment = new Assignment(name, description, content);
+        assignments.add(assignment);
+        saveAssignments();
+    }
+
+    // create assignments with object
+    public void createAssignment(Assignment assignment){
         assignments.add(assignment);
         saveAssignments();
     }
@@ -118,7 +124,7 @@ public class Teacher {
         // TODO
     }
 
-    //delete assignment from list
+    //delete assignments from list
     public void deleteAssignment(Assignment assignmentToDelete){
         for(Assignment toDelete : assignments){
             if(toDelete.equals(assignmentToDelete)){
@@ -126,6 +132,7 @@ public class Teacher {
                 break;
             }
         }
+        saveAssignments();
     }
 
     // add single appointment
