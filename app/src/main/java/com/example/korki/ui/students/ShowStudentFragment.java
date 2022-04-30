@@ -8,16 +8,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.PackageManagerCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.korki.MainActivity;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentShowStudentBinding;
 import engine.Student;
@@ -44,8 +41,15 @@ public class ShowStudentFragment extends Fragment {
 
     Student student;
 
-    //identifies our request
+    //identifies request
     private static final int REQUEST_CALL = 1;
+
+    //functions
+
+    //constructors
+    public ShowStudentFragment() {
+        //empty constructor required
+    }
     public ShowStudentFragment(Student student) {this.student = student;}
 
 
@@ -72,7 +76,7 @@ public class ShowStudentFragment extends Fragment {
 
         }else{
             //format is incorrect
-            Toast.makeText(getContext(),"Enter a phone number", Toast.LENGTH_LONG);
+            Toast.makeText(getContext(),"Enter a phone number", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -83,7 +87,7 @@ public class ShowStudentFragment extends Fragment {
             if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 makePhoneCall();
             }else{
-                Toast.makeText(getContext(),"Permision Denied",Toast.LENGTH_LONG);
+                Toast.makeText(getContext(),"Permision Denied",Toast.LENGTH_LONG).show();
             }
         }
     }

@@ -35,7 +35,10 @@ public class EditStudentFragment extends Fragment {
     Button editBut;
 
     //functions
-    //constructor
+    //constructors
+    public EditStudentFragment() {
+        //empty constructor required
+    }
     public EditStudentFragment(Student student) {this.student = student;}
 
 
