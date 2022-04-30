@@ -35,6 +35,10 @@ public class StudentsFragment extends Fragment {
                 Objects.requireNonNull(this.getContext()), students,getParentFragmentManager(),getResources());
         studentsList.setAdapter(studentsAdapter);
 
+        //show student details
+
+
+
 
         // add student floating button
         final FloatingActionButton addStudentBut = binding.addStudentBut;

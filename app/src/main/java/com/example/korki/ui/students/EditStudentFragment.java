@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
-import com.example.korki.databinding.FragmentAddStudentBinding;
 import com.example.korki.databinding.FragmentEditStudentBinding;
 import engine.Student;
 import engine.Teacher;
@@ -115,9 +114,6 @@ public class EditStudentFragment extends Fragment {
                     student.setEmail(email.getText().toString());
                     student.setPhone(phone.getText().toString());
                     student.setDescription(description.getText().toString());
-                    //Student studentToAdd = new Student(firstName.getText().toString(),surname.getText().toString(),
-                            //phone.getText().toString(),email.getText().toString(),description.getText().toString());
-                    //Teacher.getTeacher().addStudent(studentToAdd);
                     Teacher.getTeacher().saveStudents();
                     Toast.makeText(getContext(),"Student has been edited.",Toast.LENGTH_LONG).show();
                     getParentFragmentManager()
