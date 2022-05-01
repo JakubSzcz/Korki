@@ -14,18 +14,16 @@
             android:id="@+id/assignment_added"/>
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:text="Delete"
-            android:id="@+id/delete_assignment_button"
-            android:onClick="deleteAssignment"/>
+            android:text="@string/delete"
+            android:id="@+id/delete_assignment_button"/>
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/delete_assignment_button"
+            android:layout_toStartOf="@+id/delete_assignment_button"
             android:layout_marginEnd="10dp"
-            android:text="Edit"
-            android:id="@+id/edit_assignment_button"
-            android:onClick="editAssignment"/>
+            android:text="@string/edit"
+            android:id="@+id/edit_assignment_button"/>
 
 
 

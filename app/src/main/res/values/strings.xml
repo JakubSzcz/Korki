@@ -21,8 +21,8 @@
     <string name="how_many_weeks">How many weeks</string>
     <string name="price">Price</string>
     <string name="Duration">Duration</string>
-    <string name="add">add</string>
-    <string name="cancel">cancel</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
     <string name="title">Title</string>
     <string name="meeting_title">Meeting title</string>
     <string name="starting_date">Starting date</string>
@@ -30,6 +30,26 @@
     <string name="welcome">Welcome to Korki</string>
     <string name="future_appointments">Future appointments:</string>
     <string name="list_empty">You have no future appointments</string>
+    <string name="delete">Delete</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="assignment_name">Assignment name</string>
+    <string name="enter_assignments_name">Enter assignments name</string>
+    <string name="assignment_description">Assignment description</string>
+    <string name="enter_assignments_description">Enter assignments description</string>
+    <string name="assignments_content">Assignments content</string>
+    <string name="enter_assignments_content">Enter assignments content</string>
+    <string name="first_name">First name</string>
+    <string name="enter_students_first_name">Enter students first name</string>
+    <string name="surname">Surname</string>
+    <string name="enter_students_surname">Enter students surname</string>
+    <string name="email">Email</string>
+    <string name="enter_students_email">Enter students email</string>
+    <string name="phone_number">Phone number</string>
+    <string name="enter_students_phone_number">Enter students phone number</string>
+    <string name="description">Description</string>
+    <string name="enter_description_of_student">Enter description of student</string>
+    <string name="student_added">Student added:</string>
+    <string name="assign">Assign</string>
+    <string name="call">Call</string>
 </resources>

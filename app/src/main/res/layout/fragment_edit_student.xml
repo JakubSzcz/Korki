@@ -8,7 +8,7 @@
                     xmlns:tools="http://schemas.android.com/tools"
                     tools:context=".ui.students.EditStudentFragment">
         <TextView
-                android:text="First name"
+                android:text="@string/first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/first_name_txt"
@@ -22,11 +22,11 @@
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"
                   android:autofillHints="Enter students first name"
-                  android:hint="Enter students first name  "
+                  android:hint="@string/enter_students_first_name"
                   android:inputType="textPersonName|textCapWords"
                   android:maxLength="25"/>
         <TextView
-                android:text="Surname"
+                android:text="@string/surname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/surname_txt"
@@ -40,12 +40,12 @@
                   android:layout_below="@id/surname_txt"
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"
-                  android:hint="Enter students surname  "
+                  android:hint="@string/enter_students_surname"
                   android:autofillHints="Enter students surname  "
                   android:inputType="textPersonName|textCapWords"
                   android:maxLength="25"/>
         <TextView
-                android:text="Email"
+                android:text="@string/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/email_txt"
@@ -59,11 +59,11 @@
                   android:layout_below="@id/email_txt"
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"
-                  android:hint="Enter students email  "
+                  android:hint="@string/enter_students_email"
                   android:inputType="textEmailAddress"
                   android:maxLength="40"/>
         <TextView
-                android:text="Phone number"
+                android:text="@string/phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone_txt"
@@ -77,11 +77,11 @@
                   android:layout_below="@id/phone_txt"
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"
-                  android:hint="Enter students phone number  "
+                  android:hint="@string/enter_students_phone_number"
                   android:inputType="phone"
                   android:maxLength="9"/>
         <TextView
-                android:text="Description"
+                android:text="@string/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/description_txt"
@@ -95,7 +95,7 @@
                   android:layout_below="@id/description_txt"
                   android:layout_marginStart="30dp"
                   android:layout_marginTop="10dp"
-                  android:hint="Enter description of student  "
+                  android:hint="@string/enter_description_of_student"
                   android:inputType="textMultiLine"
                   android:scrollbars="vertical"
                   android:maxLines="8"
@@ -112,7 +112,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="6dp"
-                android:text="Edit"
+                android:text="@string/edit"
                 android:id="@+id/edit_but"
                 android:layout_below="@id/description_edit"/>
 
