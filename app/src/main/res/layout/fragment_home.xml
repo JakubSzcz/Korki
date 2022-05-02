@@ -4,30 +4,37 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.home.HomeFragment">
 
+    <ImageView android:layout_width="150dp"
+               android:layout_height="150dp"
+               app:srcCompat="@drawable/cork"
+               android:layout_centerHorizontal="true"
+               android:id="@+id/korki_img"
+               android:contentDescription="@string/korki"/>
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/welcome"
               android:textSize="40sp"
               android:gravity="center"
+              android:layout_below="@+id/korki_img"
               android:id="@+id/hello"/>
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/future_appointments"
-              android:textSize="26sp"
+              android:textSize="22sp"
+              android:layout_marginStart="10dp"
+              android:layout_marginBottom="10dp"
               android:layout_below="@+id/hello"
               android:id="@+id/future_appointments_label"/>
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/future_appointments_label"
-              android:text="@string/list_empty"
-              android:layout_marginTop="10dp"
-              android:id="@+id/list_empty"/>
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/list_empty"
+            android:layout_marginStart="5dp"
+            android:layout_below="@+id/future_appointments_label"
             android:id="@+id/appointments_list"
     />
 

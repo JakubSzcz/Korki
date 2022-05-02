@@ -106,6 +106,7 @@ public class EditAppointmentFragment extends Fragment {
             time = binding.time;
             time.setHour(dateStart.getHour());
             time.setMinute(dateStart.getMinute());
+            time.setIs24HourView(true);
         }
 
         // title

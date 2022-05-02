@@ -52,4 +52,6 @@
     <string name="student_added">Student added:</string>
     <string name="assign">Assign</string>
     <string name="call">Call</string>
+    <string name="assignments">Assignments</string>
+    <string name="korki">Korki</string>
 </resources>
