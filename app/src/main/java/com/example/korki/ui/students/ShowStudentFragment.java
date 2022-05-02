@@ -20,6 +20,8 @@ import com.example.korki.databinding.FragmentShowStudentBinding;
 import engine.Student;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.format.DateTimeFormatter;
+
 public class ShowStudentFragment extends Fragment {
 
     //variables
@@ -128,7 +130,7 @@ public class ShowStudentFragment extends Fragment {
             phone.setText(student.getPhone());
             email.setText(student.getEmail());
             description.setText(student.getDescription());
-            added.setText(student.getAdded());
+            added.setText(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").format(student.getAdded()));
         }
         //adding handling buttons logic
         //cancel button

@@ -18,6 +18,7 @@ import engine.Teacher;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class StudentsAdapter extends ArrayAdapter<Student> {
@@ -97,7 +98,7 @@ public class StudentsAdapter extends ArrayAdapter<Student> {
         // Populate the data into the template view using the data object
         firstName.setText("First name: " + student.getFirstName());
         surName.setText("Surname: " + student.getSurName());
-        added.setText("Student added: " + student.getAdded());
+        added.setText("Student added: " + DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").format(student.getAdded()));
 
         //show students details
         convertView.setOnClickListener(new View.OnClickListener() {

@@ -148,7 +148,7 @@ public class Student implements Serializable {
 
     public String getPhone() {return phone;}
 
-    public String getAdded() {return String.valueOf(added);}
+    public LocalDateTime getAdded() {return added;}
 
     public String getDescription() {return description;}
 

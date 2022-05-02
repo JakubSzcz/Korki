@@ -9,3 +9,6 @@ Opis
     * more informetion: [stackoverflow](https://stackoverflow.com/questions/27620262/sdk-location-not-found-define-location-with-sdk-dir-in-the-local-properties-fil)
 2. **Your project path contains non-ASCII characters**
     * Make sure that your project path doesn't contain any special characters
+
+### Icons and images
+1. [Internet icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/internet)

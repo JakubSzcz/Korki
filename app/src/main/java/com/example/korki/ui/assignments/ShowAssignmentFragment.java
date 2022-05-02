@@ -11,6 +11,8 @@ import com.example.korki.R;
 import com.example.korki.databinding.FragmentShowAssignmentBinding;
 import engine.Assignment;
 
+import java.time.format.DateTimeFormatter;
+
 public class ShowAssignmentFragment extends Fragment {
 
     //variables
@@ -73,7 +75,7 @@ public class ShowAssignmentFragment extends Fragment {
             name.setText(assignment.getAssignmentName());
             description.setText(assignment.getDescription());
             content.setText(assignment.getContent());
-            added.setText(assignment.getAdded().toString());
+            added.setText( DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").format(assignment.getAdded()));
         }
 
         //adding handling buttons logic
