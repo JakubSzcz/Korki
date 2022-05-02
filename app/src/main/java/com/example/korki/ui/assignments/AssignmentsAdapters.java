@@ -17,6 +17,7 @@ import engine.Assignment;
 import engine.Teacher;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class AssignmentsAdapters extends ArrayAdapter<Assignment> {
@@ -93,7 +94,7 @@ public class AssignmentsAdapters extends ArrayAdapter<Assignment> {
 
         // Populate the data into the template view using the data object
         name.setText(assignment.getAssignmentName());
-        added.setText(assignment.getAdded().toString());
+        added.setText( DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").format(assignment.getAdded()));
 
         //show assignment details
         convertView.setOnClickListener(new View.OnClickListener() {
