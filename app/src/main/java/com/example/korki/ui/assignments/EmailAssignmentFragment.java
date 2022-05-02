@@ -1,5 +1,6 @@
 package com.example.korki.ui.assignments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
@@ -166,7 +167,23 @@ public class EmailAssignmentFragment extends Fragment{
         sendBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"You have no students to chose from",Toast.LENGTH_LONG).show();
+                //students instance for email
+                Student student = (Student) studentsSpinner.getSelectedItem();
+                //new action intent
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                //filling intent with email data
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{student.getEmail()});
+                intent.putExtra(Intent.EXTRA_SUBJECT, new String[]{emailSubject.getText().toString()});
+                intent.putExtra(Intent.EXTRA_TEXT, new String[]{emailMessage.getText().toString()});
+                //narrowing down the types of application that supports sending email action
+                intent.setType("message/rfc822");
+                //check if there is any application installed on the device that can handle this action
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getContext(),"There is no application installed supporting that action!",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
