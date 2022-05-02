@@ -102,7 +102,7 @@ public class AddStudentFragment extends Fragment {
                 //creating new student if required fields are filled and adding it to teacher.students
                 if(!emptyFields){
                     Student studentToAdd = new Student(firstName.getText().toString(),surname.getText().toString(),
-                            phone.getText().toString(),email.getText().toString(),description.getText().toString());
+                            email.getText().toString(), phone.getText().toString(),description.getText().toString());
                     Teacher.getTeacher().addStudent(studentToAdd);
                     Toast.makeText(getContext(),"New student has been added.",Toast.LENGTH_LONG).show();
                     getParentFragmentManager()

@@ -54,4 +54,11 @@
     <string name="call">Call</string>
     <string name="assignments">Assignments</string>
     <string name="korki">Korki</string>
+    <string name="choose_student">Choose student</string>
+    <string name="student_email_address">Student email address</string>
+    <string name="re">RE</string>
+    <string name="email_message">Email message</string>
+    <string name="send">Send</string>
+    <string name="enter_message">Enter message</string>
+    <string name="enter_email_subject">Enter email subject</string>
 </resources>

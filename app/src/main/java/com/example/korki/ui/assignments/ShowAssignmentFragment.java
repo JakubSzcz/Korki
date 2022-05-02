@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentShowAssignmentBinding;
+import com.example.korki.ui.students.StudentsFragment;
 import engine.Assignment;
 
 import java.time.format.DateTimeFormatter;
@@ -32,7 +33,7 @@ public class ShowAssignmentFragment extends Fragment {
 
     Button cancelBut;
 
-    Button addBut;
+    Button assignBut;
 
     Assignment assignment;
     public ShowAssignmentFragment() {
@@ -68,9 +69,9 @@ public class ShowAssignmentFragment extends Fragment {
         description = binding.assignmentDescriptionContent;
         added = binding.assignmentAddedContent;
         cancelBut = binding.assignmentCancelBut;
-        addBut = binding.assignmentAssignBut;
+        assignBut = binding.assignmentAssignBut;
 
-        //filing date
+        //filing data
         if(!(assignment == null)) {
             name.setText(assignment.getAssignmentName());
             description.setText(assignment.getDescription());
@@ -94,7 +95,18 @@ public class ShowAssignmentFragment extends Fragment {
             }
         });
 
-        //TODO assign button clickListener
+        assignBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                new EmailAssignmentFragment(assignment))
+                        .addToBackStack(null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            }
+        });
 
         return root;
     }
