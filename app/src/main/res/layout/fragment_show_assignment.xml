@@ -4,78 +4,86 @@
                 android:layout_height="wrap_content"
                 xmlns:tools="http://schemas.android.com/tools"
                 tools:context=".ui.assignments.ShowAssignmentFragment">
-        <TextView
-                android:text="@string/assignment_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/assignment_name_txt"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
-                android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/assignment_name_content"
-                  android:layout_below="@id/assignment_name_txt"
-                  android:layout_marginStart="30dp"
-                  android:layout_marginTop="10dp"/>
-        <TextView
-                android:text="@string/assignment_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/assignment_description_txt"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
-                android:layout_below="@id/assignment_name_content"
-                android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/assignment_description_content"
-                  android:layout_below="@id/assignment_description_txt"
-                  android:layout_marginStart="30dp"
-                  android:layout_marginTop="10dp"/>
-        <TextView
-                android:text="@string/assignments_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/assignment_content_txt"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
-                android:textSize="20sp"
-                android:layout_below="@id/assignment_description_content"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/assignment_content_content"
-                  android:layout_below="@id/assignment_content_txt"
-                  android:layout_marginStart="30dp"
-                  android:layout_marginTop="10dp"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/assignment_added_txt"
-                  android:layout_below="@id/assignment_content_content"
-                  android:text="@string/student_added"
-                  android:layout_marginStart="30dp"
-                  android:layout_marginTop="10dp"/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/assignment_added_content"
-                  android:layout_below="@id/assignment_added_txt"
-                  android:layout_marginStart="30dp"
-                  android:layout_marginTop="10dp"/>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/add_assignment_data"
+                    android:layout_above="@id/show_assignment_buttons">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+
+                        <TextView android:text="@string/assignment_name"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_name_txt"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="40dp"
+                                  android:textSize="20sp"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_name_content"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="10dp"/>
+                        <TextView android:text="@string/assignment_description"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_description_txt"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="40dp"
+                                  android:textSize="20sp"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_description_content"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="10dp"/>
+                        <TextView android:text="@string/assignments_content"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_content_txt"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="40dp"
+                                  android:textSize="20sp"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_content_content"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_added_txt"
+                                  android:text="@string/assignment_added"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/assignment_added_content"
+                                  android:layout_marginStart="30dp"
+                                  android:layout_marginTop="10dp"/>
+
+                </LinearLayout>
+
+        </ScrollView>
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal"
+                        android:id="@+id/show_assignment_buttons">
+
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:text="@string/cancel"
                 android:layout_marginStart="6dp"
                 android:id="@+id/assignment_cancel_but"/>
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="6dp"
                 android:text="@string/assign"
                 android:id="@+id/assignment_assign_but"/>
 
-
-
+        </RelativeLayout>
 
 </RelativeLayout>

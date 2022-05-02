@@ -5,6 +5,15 @@
              android:layout_height="wrap_content"
              tools:context=".ui.assignments.EmailAssignmentFragment">
 
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/add_assignment_data"
+                android:layout_above="@id/email_assignment_buttons">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -15,14 +24,12 @@
             android:id="@+id/assignment_name_txt_email"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_name_txt_email"
               android:textSize="15sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
               android:id="@+id/assignment_name_content_email"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_name_content_email"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
@@ -31,12 +38,10 @@
     <Spinner
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            android:layout_below="@+id/choose_student_txt"
             android:layout_marginTop="10dp"
             android:id="@+id/students_spinner"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/choose_student_txt"
               android:textSize="20sp"
               android:layout_marginTop="60dp"
               android:layout_marginStart="20dp"
@@ -44,14 +49,12 @@
               android:id="@+id/assignment_student_email_address_txt"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_student_email_address_txt"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
               android:id="@+id/assignment_student_email_address_content"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_student_email_address_content"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
@@ -59,7 +62,6 @@
               android:id="@+id/assignment_email_subject_txt"/>
     <EditText android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_email_subject_txt"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
@@ -69,7 +71,6 @@
               android:maxLength="50"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_email_subject_content"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
@@ -77,31 +78,40 @@
               android:id="@+id/assignment_email_message_txt"/>
     <EditText android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_below="@id/assignment_email_message_txt"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
-              android:id="@+id/assignment_email_message_content"
               android:hint="@string/enter_message"
               android:autofillHints="enter_message"
               android:inputType="textMultiLine"
+              android:id="@+id/assignment_email_message_content"
               android:scrollbars="vertical"
               android:maxLines="20"
               android:maxLength="1000"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:id="@+id/email_assignment_buttons">
+
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="false"
             android:text="@string/cancel"
             android:layout_marginStart="6dp"
-            android:id="@+id/cancel_but"
-            android:layout_alignParentBottom="true"/>
+            android:id="@+id/cancel_but"/>
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="6dp"
             android:text="@string/send"
             android:id="@+id/send_but"/>
 
+    </RelativeLayout>
 
 </RelativeLayout>

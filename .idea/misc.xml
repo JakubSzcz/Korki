@@ -10,16 +10,16 @@
         <entry key="..\:/Projekt/app/src/main/res/layout/content_main.xml" value="0.18229166666666666" />
         <entry key="..\:/Projekt/app/src/main/res/layout/day_info.xml" value="0.18229166666666666" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_add_appointment.xml" value="0.2" />
-        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_add_assignment.xml" value="0.17760416666666667" />
+        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_add_assignment.xml" value="0.1" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_add_student.xml" value="0.2" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_appointments.xml" value="0.24010416666666667" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_assignments.xml" value="0.17760416666666667" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_edit_appointment.xml" value="0.15208333333333332" />
-        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_edit_assignment.xml" value="0.17760416666666667" />
+        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_edit_assignment.xml" value="0.1" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_edit_student.xml" value="0.15208333333333332" />
-        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_email_assignment.xml" value="0.17760416666666667" />
+        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_email_assignment.xml" value="0.1" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_gallery.xml" value="0.16979166666666667" />
-        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_show_assignment.xml" value="0.17760416666666667" />
+        <entry key="..\:/Projekt/app/src/main/res/layout/fragment_show_assignment.xml" value="0.1" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_show_student.xml" value="0.13802083333333334" />
         <entry key="..\:/Projekt/app/src/main/res/layout/fragment_students.xml" value="0.2390625" />
         <entry key="..\:/Projekt/app/src/main/res/layout/nav_header_main.xml" value="0.25" />

@@ -3,7 +3,6 @@ package com.example.korki.ui.assignments;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,10 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentAddAssignmentBinding;
-import com.example.korki.databinding.FragmentAddStudentBinding;
-import com.example.korki.ui.students.StudentsFragment;
-import engine.Assignment;
-import engine.Student;
 import engine.Teacher;
 
 public class AddAssignmentFragment extends Fragment {
