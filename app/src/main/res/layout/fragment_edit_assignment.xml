@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-    <RelativeLayout android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    tools:context=".ui.assignments.AddAssignmentFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                xmlns:tools="http://schemas.android.com/tools"
+                tools:context=".ui.assignments.AddAssignmentFragment">
         <TextView
                 android:text="@string/assignment_name"
                 android:layout_width="wrap_content"
@@ -70,18 +67,13 @@
                 android:layout_alignParentBottom="true"
                 android:text="@string/cancel"
                 android:layout_marginStart="6dp"
-                android:id="@+id/assignment_cancel_but"
-                android:layout_below="@id/assignment_content_edit"/>
+                android:id="@+id/assignment_cancel_but"/>
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="6dp"
                 android:text="@string/edit"
-                android:id="@+id/assignment_edit_but"
-                android:layout_below="@id/assignment_content_edit"/>
+                android:id="@+id/assignment_edit_but"/>
 
-    </RelativeLayout>
-
-
-</ScrollView>
+</RelativeLayout>
