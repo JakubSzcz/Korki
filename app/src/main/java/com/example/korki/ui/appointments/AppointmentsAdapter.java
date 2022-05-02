@@ -68,7 +68,7 @@ public class AppointmentsAdapter extends ArrayAdapter<Appointment> {
             edit.setVisibility(View.GONE);
             delete.setVisibility(View.GONE);
         }else{
-
+            edit.setBackgroundColor(resources.getColor(R.color.apply_button));
             edit.setOnClickListener(view -> {
                 fragmentManager
                         .beginTransaction()
