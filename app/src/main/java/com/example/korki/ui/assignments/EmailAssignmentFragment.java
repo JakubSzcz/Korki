@@ -110,6 +110,12 @@ public class EmailAssignmentFragment extends Fragment{
             studentsSpinner.setAdapter(spinnerAdapter);
         }
 
+        //handling no students scenario
+        if(students != null) {
+            if (students.size() == 0) {
+                Toast.makeText(getContext(),"You have no students to chose from",Toast.LENGTH_LONG).show();
+            }
+        }
         //if student was chosen
         if(studentsSpinner.getSelectedItem() != null){
             if(students != null && assignment != null){
@@ -143,7 +149,7 @@ public class EmailAssignmentFragment extends Fragment{
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getContext(),"You have no students to chose from",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"You didn't select any student.",Toast.LENGTH_LONG).show();
             }
         });
 
