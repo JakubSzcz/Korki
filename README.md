@@ -1,14 +1,7 @@
-# Korki
-Opis
+# Zadania
 
-### Compilation problems
-1. **SDK location not Found**
-    * create file *local.properties* in project directory
-    * paste: *sdk.dir=C\\:\\\\Users\\\\yourUserName\\\\AppData\\\\Local\\\\Android\\\\Sdk* to created file
-    * change *yourUserName*
-    * more informetion: [stackoverflow](https://stackoverflow.com/questions/27620262/sdk-location-not-found-define-location-with-sdk-dir-in-the-local-properties-fil)
-2. **Your project path contains non-ASCII characters**
-    * Make sure that your project path doesn't contain any special characters
+### Zadanie 1
+Skonfiguruj środowisko IntelliJ (opcjonalnie Android Studio) wraz z wirtualną maszyną (Pixel2, Android 8.1 lub wyżej). Pobierz kod źródłowy aplikacji i uruchom ją w przygotowanym środowisku.
 
-### Icons and images
-1. [Internet icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/internet)
+### Zadanie 2
+W aplikacji został usunięty kod odpowiedzialny za zapisywanie studentów (students), spotkań (appointments) oraz zadań (assignments) do pliku. Napisz własny kod, który będzie zapisywał wszystkie 3 klasy do jednego pliku (użyj kartę SD). W tym celu zmodyfikuj pliki: Teacher oraz MainActivity.
