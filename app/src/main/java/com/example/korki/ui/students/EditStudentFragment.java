@@ -129,7 +129,7 @@ public class EditStudentFragment extends Fragment {
                     student.setEmail(email.getText().toString());
                     student.setPhone(phone.getText().toString());
                     student.setDescription(description.getText().toString());
-                    Teacher.getTeacher().saveStudents();
+                    Teacher.getTeacher().save();
                     Toast.makeText(getContext(),"Student has been edited.",Toast.LENGTH_LONG).show();
                     getParentFragmentManager()
                             .beginTransaction()

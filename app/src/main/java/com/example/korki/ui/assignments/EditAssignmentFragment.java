@@ -118,7 +118,7 @@ public class EditAssignmentFragment extends Fragment {
                     assignment.setAssignmentName(name.getText().toString());
                     assignment.setDescription(description.getText().toString());
                     assignment.setContent(content.getText().toString());
-                    Teacher.getTeacher().saveAssignments();
+                    Teacher.getTeacher().save();
                     Toast.makeText(getContext(),"Assignment has been edited.",Toast.LENGTH_LONG).show();
                     getParentFragmentManager()
                             .beginTransaction()

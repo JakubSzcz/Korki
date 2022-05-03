@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        // TODO: 3. Add fragment here.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_students, R.id.nav_appointments, R.id.nav_assignments,
                 R.id.add_appointment, R.id.edit_appointment,R.id.add_student, R.id.add_assignment)
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        // settings action
+        menu.getItem(0).setOnMenuItemClickListener(menuItem -> {
+            // TODO: 3. Replace current fragment to settingsFragment
+            return false;
+        });
         return true;
     }
 
