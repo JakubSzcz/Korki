@@ -8,3 +8,9 @@ W aplikacji został usunięty kod odpowiedzialny za zapisywanie studentów (stud
 
 ### Zadanie 3
 Utwórz nowy fragment (settingsFragment), który będzie się pojawiał po kliknięciu w przycisk "Settings", który znajduje się w menu w prawym, górnym rogu ekranu. Skorzystaj z funkcji IntelliJ'a: prawy przycisk myszy > New > Fragment > Fragment (Blank). Utworzone zostaną 2 pliki: klasa settingsFragment.java oraz layout fragment_settings.xml. Następnie dodaj fragment w pliku mobile_navigation.xml oraz MainActivity.java. W pliku MainActivity.java napisz kod, który zastąpi bieżacy fragment, po naciśnięciu przycisku.
+
+### Zadanie 4
+To zadanie z dzwonieniem i mailami.
+
+### Zadanie 5
+Zastąp obecne ikonki (home, students, appointments, assignments) w bocznym menu nowymi, stworzonymi lub pobranymi przez siebie, ikonami. Następnie w pliku AndroidManifest.xml zmień ikonę programu, która wyświetla się w menu głównym Androida.
