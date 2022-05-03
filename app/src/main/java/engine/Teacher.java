@@ -35,29 +35,17 @@ public class Teacher {
     // constructor
     private Teacher(){
         if (path != null){
-            // read calendar
-            File calendarFile = new File(path, CALENDAR_FILENAME);
+            // read all classes
+            File teacherFile = new File(path, ALL_CLASSES_FILENAME);
             try {
-                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(calendarFile));
-                this.calendar = (Calendar)stream.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                this.calendar = new Calendar();
-            }
-            // read student
-            File studentsFile = new File(path, STUDENTS_FILENAME);
-            try {
-                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(studentsFile));
+                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(teacherFile));
+                this.calendar = (Calendar) stream.readObject();
                 this.students = (ArrayList<Student>) stream.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                this.students = new ArrayList<>();
-            }
-            // read assignments
-            File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
-            try {
-                ObjectInputStream stream = new ObjectInputStream(new FileInputStream(assignmentsFile));
                 this.assignments = (ArrayList<Assignment>) stream.readObject();
             } catch (IOException | ClassNotFoundException e) {
                 this.assignments = new ArrayList<>();
+                this.students = new ArrayList<>();
+                this.calendar = new Calendar();
             }
         }else{
             // initialize empty
@@ -65,24 +53,19 @@ public class Teacher {
             this.students = new ArrayList<>();
             this.assignments = new ArrayList<>();
         }
-
-        ////////// tests purposes
-        //addStudent("Jan", "Kowalski", "jan.kowalski@example.com", "999888777");
-        //addStudent("Piotr", "Nowak", "piotr.nowak@example.com", "939582757");
-        //addStudent("Krzysztof", "Piątek", "krzyszotf.piatek@example.com", "869886771");
     }
 
     // add student to students list with students values
     public void addStudent(String firstName, String surName, String email, String phone){
         Student student = new Student(firstName, surName, email, phone);
         students.add(student);
-        saveStudents();
+        save();
     }
 
     //add student to students list with student object
     public void addStudent(Student student){
         students.add(student);
-        saveStudents();
+        save();
     }
     // delete student from students list
     public void deleteStudent(Student studentToDelete){
@@ -96,32 +79,27 @@ public class Teacher {
                 }
             }
         }
-        saveStudents();
+        save();
     }
 
     // create assignments with attachments
     public void createAssignment(String name, String description, String content ,ArrayList<String> attachmentsFileNames){
         Assignment assignment = new Assignment(name, description, content ,attachmentsFileNames);
         assignments.add(assignment);
-        saveAssignments();
+        save();
     }
 
     // create assignments without attachments
     public void createAssignment(String name, String description, String content){
         Assignment assignment = new Assignment(name, description, content);
         assignments.add(assignment);
-        saveAssignments();
+        save();
     }
 
     // create assignments with object
     public void createAssignment(Assignment assignment){
         assignments.add(assignment);
-        saveAssignments();
-    }
-
-    //
-    public void editAssignment(){
-        // TODO
+        save();
     }
 
     //delete assignments from list
@@ -132,7 +110,7 @@ public class Teacher {
                 break;
             }
         }
-        saveAssignments();
+        save();
     }
 
     // add single appointment
@@ -140,7 +118,7 @@ public class Teacher {
                                         LocalDateTime dateStart, int duration){
         boolean worked = calendar.addSingleAppointment(student, title, price, dateStart, duration);
         if (worked){
-            saveCalendar();
+            save();
         }
         return worked;
     }
@@ -153,7 +131,7 @@ public class Teacher {
         boolean worked = calendar.addPeriodicAppointment(student, title, price, timeInfo,
                 durations, howManyWeeks, startingDate);
         if (worked){
-            saveCalendar();
+            save();
         }
         return worked;
     }
@@ -162,7 +140,7 @@ public class Teacher {
     public void deleteAppointment(Appointment appointment){
         boolean worked = calendar.deleteAppointment(appointment);
         if (worked){
-            saveCalendar();
+            save();
         }
     }
 
@@ -171,43 +149,10 @@ public class Teacher {
         Teacher.path = path;
     }
 
-    // save calendar
-    public void saveCalendar(){
-        if (path != null){
-            File calendarFile = new File(path, CALENDAR_FILENAME);
-            try {
-                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(calendarFile));
-                stream.writeObject(calendar);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    // TODO: 2. Complete save methode. Use ALL_CLASSES_FILENAME variable as file name.
+    //  Pay attention to the load order in constructor.
+    public void save(){
 
-    // save students
-    public void saveStudents(){
-        if (path != null){
-            File studentsFile = new File(path, STUDENTS_FILENAME);
-            try {
-                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(studentsFile));
-                stream.writeObject(students);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    // save assignments
-    public void saveAssignments(){
-        if (path != null){
-            File assignmentsFile = new File(path, ASSIGNMENTS_FILENAME);
-            try {
-                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(assignmentsFile));
-                stream.writeObject(assignments);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
 
@@ -259,4 +204,6 @@ public class Teacher {
     public final String ASSIGNMENTS_FILENAME = "appointments";
     public final String STUDENTS_FILENAME = "students";
     public final String CALENDAR_FILENAME = "calendar";
+
+    public final String ALL_CLASSES_FILENAME = "teacher";
 }

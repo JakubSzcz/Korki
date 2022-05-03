@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // set path for teacher engine
-        Teacher.setPath(this.getApplicationContext().getFilesDir());
+        // TODO: 2. Set storage path for teacher engine
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

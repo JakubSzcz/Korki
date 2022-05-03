@@ -31,8 +31,6 @@
     <string name="future_appointments">Future appointments:</string>
     <string name="list_empty">You have no future appointments</string>
     <string name="delete">Delete</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="assignment_name">Assignment name</string>
     <string name="enter_assignments_name">Enter assignments name</string>
     <string name="assignment_description">Assignment description</string>
