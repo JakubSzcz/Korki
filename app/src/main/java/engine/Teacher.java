@@ -149,7 +149,7 @@ public class Teacher {
         Teacher.path = path;
     }
 
-    // TODO: 2. Complete save methode. Use ALL_CLASSES_FILENAME variable as file name.
+    // TODO 2. Complete save methode. Use ALL_CLASSES_FILENAME variable as file name.
     //  Pay attention to the load order in constructor.
     public void save(){
 
