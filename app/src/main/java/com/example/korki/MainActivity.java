@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO 2. Set storage path for teacher engine
+        // TODO 4. Set storage path for teacher engine
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        // TODO 3.1 Add fragment here.
+        // TODO 2.1 Add fragment here.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_students, R.id.nav_appointments, R.id.nav_assignments,
                 R.id.add_appointment, R.id.edit_appointment,R.id.add_student, R.id.add_assignment)
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         // settings action
         menu.getItem(0).setOnMenuItemClickListener(menuItem -> {
-            // TODO 3.2 Replace current fragment to settingsFragment
+            // TODO 2.2 Replace current fragment to settingsFragment
             return false;
         });
         return true;
