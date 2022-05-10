@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.korki.R;
 import com.example.korki.databinding.FragmentEmailAssignmentBinding;
+import com.example.korki.ui.home.HomeFragment;
 import engine.Assignment;
 import engine.Student;
 import engine.Teacher;
@@ -30,11 +31,11 @@ public class EmailAssignmentFragment extends Fragment{
 
     TextView studentEmailTxt;
 
-    EditText emailSubject;
+    TextView emailSubject;
 
     TextView emailSubjectTxt;
 
-    EditText emailMessage;
+    TextView emailMessage;
 
     TextView emailMessageTxt;
 
@@ -85,10 +86,12 @@ public class EmailAssignmentFragment extends Fragment{
         studentEmailTxt = binding.assignmentStudentEmailAddressTxt;
         studentEmailTxt.setVisibility(View.GONE);
         emailSubject = binding.assignmentEmailSubjectContent;
+        emailSubject.setText(assignment.getAssignmentName());
         emailSubject.setVisibility(View.GONE);
         emailSubjectTxt = binding.assignmentEmailSubjectTxt;
         emailSubjectTxt.setVisibility(View.GONE);
         emailMessage = binding.assignmentEmailMessageContent;
+        emailMessage.setText(assignment.getContent());
         emailMessage.setVisibility(View.GONE);
         emailMessageTxt = binding.assignmentEmailMessageTxt;
         emailMessageTxt.setVisibility(View.GONE);
@@ -179,13 +182,21 @@ public class EmailAssignmentFragment extends Fragment{
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 //filling intent with email data
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{student.getEmail()});
-                intent.putExtra(Intent.EXTRA_SUBJECT, new String[]{emailSubject.getText().toString()});
-                intent.putExtra(Intent.EXTRA_TEXT, new String[]{emailMessage.getText().toString()});
+                intent.putExtra(Intent.EXTRA_SUBJECT, (CharSequence) (emailSubject.getText().toString()));
+                intent.putExtra(Intent.EXTRA_TEXT, (CharSequence) (emailMessage.getText().toString()));
                 //narrowing down the types of application that supports sending email action
                 intent.setType("message/rfc822");
                 //check if there is any application installed on the device that can handle this action
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null){
                     startActivity(intent);
+                    getParentFragmentManager()
+                            .beginTransaction()
+                            .replace(com.example.korki.R.id.nav_host_fragment_content_main,
+                                    new AssignmentsFragment())
+                            .addToBackStack(null)
+                            .setReorderingAllowed(true)
+                            .commit();
+
                 }else{
                     Toast.makeText(getContext(),"There is no application installed supporting that action!",
                             Toast.LENGTH_LONG).show();
