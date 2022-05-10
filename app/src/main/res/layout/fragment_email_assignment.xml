@@ -60,15 +60,12 @@
               android:layout_marginStart="20dp"
               android:text="@string/re"
               android:id="@+id/assignment_email_subject_txt"/>
-    <EditText android:layout_width="wrap_content"
+    <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
-              android:id="@+id/assignment_email_subject_content"
-              android:hint="@string/enter_email_subject"
-              android:autofillHints="enter_email_subject"
-              android:maxLength="50"/>
+              android:id="@+id/assignment_email_subject_content"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textSize="20sp"
@@ -76,18 +73,12 @@
               android:layout_marginStart="20dp"
               android:text="@string/email_message"
               android:id="@+id/assignment_email_message_txt"/>
-    <EditText android:layout_width="wrap_content"
+    <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textSize="20sp"
               android:layout_marginTop="10dp"
               android:layout_marginStart="20dp"
-              android:hint="@string/enter_message"
-              android:autofillHints="enter_message"
-              android:inputType="textMultiLine"
-              android:id="@+id/assignment_email_message_content"
-              android:scrollbars="vertical"
-              android:maxLines="20"
-              android:maxLength="1000"/>
+              android:id="@+id/assignment_email_message_content"/>
 
         </LinearLayout>
 
