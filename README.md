@@ -4,7 +4,7 @@
 Skonfiguruj środowisko IntelliJ (opcjonalnie Android Studio) wraz z wirtualną maszyną (Pixel2, Android 8.1 lub wyżej). Pobierz kod źródłowy aplikacji i uruchom ją w przygotowanym środowisku.
 
 ### Zadanie 2 - fragmenty
-Utwórz nowy fragment (settingsFragment), który będzie się pojawiał po kliknięciu w przycisk "Settings" w nav barze. W tym celu utwórz 2 pliki: ... > ui > settings > settingsFragment.java oraz res > layout > fragment_settings.xml. 
+Utwórz nowy fragment (settingsFragment), który będzie się pojawiał po kliknięciu w przycisk "Settings" w nav barze. W tym celu utwórz 2 pliki: ... > ui > settings > settingsFragment.java oraz res > layout > fragment_settings.xml. Następnie utwórz nowy item w menu > activity_main_drawer.xml (TODO 2.2) oraz navigation > mobile_navigation.xml (TODO 2.3).
 
 ### Zadanie 3 - layout
 Następnie edytuj layout (plik fragment_settings.xml). Dodaj EditText, umiejscowiony na środku ekranu wraz z atrybutem hint oraz Button, umiejscowiony w prawym, dolnym rogu ekranu. W klasie settingsFragment.java napisz kod, który uruchomi się po przyciśnięciu Button'a i wyświetli komunikat (Toast) o treści zawartej przez użytkownika w polu EditText'u.
