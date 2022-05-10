@@ -20,5 +20,6 @@
                 android:id="@+id/nav_assignments"
                 android:icon="@drawable/assignment"
                 android:title="@string/assignments"/>
+        <!--TODO 2.1 Add item here-->
     </group>
 </menu>

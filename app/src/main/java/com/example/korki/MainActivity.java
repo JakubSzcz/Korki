@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        // TODO 2.3. Add fragment id here.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_students, R.id.nav_appointments, R.id.nav_assignments,
                 R.id.add_appointment, R.id.edit_appointment,R.id.add_student, R.id.add_assignment)

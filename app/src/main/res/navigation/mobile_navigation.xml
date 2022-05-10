@@ -27,6 +27,7 @@
             android:name="com.example.korki.ui.assignments.AssignmentsFragment"
             android:label="Assignments"
             tools:layout="@layout/fragment_assignments"/>
+    <!--TODO 2.2 Add fragment here-->
     <fragment
             android:id="@+id/add_appointment"
             android:name="com.example.korki.ui.appointments.AppointmentsFragment"
