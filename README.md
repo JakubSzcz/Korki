@@ -1,5 +1,5 @@
 # Korki
-Opis
+The private lessons organizer for teachers to make it easier to manage their students, task for students and improve a whole time usage. Application was written in a Java for Android System, as a project for my studies in a collaboration with @marwyp.    
 
 ### Compilation problems
 1. **SDK location not Found**
